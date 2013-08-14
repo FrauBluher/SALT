@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.102"
+    ComputedModelVersion    "1.106"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -36,11 +36,11 @@ Model {
   Creator		  "Marx"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "root"
+  LastModifiedBy	  "Marx"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Aug 13 16:10:07 2013"
-  RTWModifiedTimeStamp	  298309815
-  ModelVersionFormat	  "1.%<AutoIncrement:102>"
+  LastModifiedDate	  "Wed Aug 14 15:57:31 2013"
+  RTWModifiedTimeStamp	  298396648
+  ModelVersionFormat	  "1.%<AutoIncrement:106>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1040,23 +1040,6 @@ Model {
       RndMeth		      "Floor"
     }
     Block {
-      BlockType		      Scope
-      ModelBased	      off
-      TickLabels	      "OneTimeTick"
-      ZoomMode		      "on"
-      Grid		      "on"
-      TimeRange		      "auto"
-      YMin		      "-5"
-      YMax		      "5"
-      SaveToWorkspace	      off
-      SaveName		      "ScopeData"
-      LimitDataPoints	      on
-      MaxDataPoints	      "5000"
-      Decimation	      "1"
-      SampleInput	      off
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      SubSystem
       ShowPortLabels	      "FromPortIcon"
       Permissions	      "ReadWrite"
@@ -1124,7 +1107,7 @@ Model {
   }
   System {
     Name		    "OldCameraGantryStuff"
-    Location		    [0, 51, 1366, 742]
+    Location		    [2, 82, 1901, 1027]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1138,12 +1121,12 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "2393"
+    SIDHighWatermark	    "2411"
     Block {
       BlockType		      Constant
       Name		      "Constant2"
       SID		      "103"
-      Position		      [1090, 380, 1120, 410]
+      Position		      [830, 380, 860, 410]
       ZOrder		      -4
       Value		      "0"
     }
@@ -1151,7 +1134,7 @@ Model {
       BlockType		      DataTypeConversion
       Name		      "Data Type Conversion"
       SID		      "149"
-      Position		      [325, 228, 400, 262]
+      Position		      [320, 293, 395, 327]
       ZOrder		      -5
       OutMax		      "4095"
       OutDataTypeStr	      "single"
@@ -1162,7 +1145,7 @@ Model {
       BlockType		      DataTypeConversion
       Name		      "Data Type Conversion1"
       SID		      "150"
-      Position		      [325, 298, 400, 332]
+      Position		      [320, 228, 395, 262]
       ZOrder		      -5
       OutMax		      "4095"
       OutDataTypeStr	      "single"
@@ -1173,7 +1156,7 @@ Model {
       BlockType		      DataTypeConversion
       Name		      "Data Type Conversion2"
       SID		      "151"
-      Position		      [325, 373, 400, 407]
+      Position		      [320, 163, 395, 197]
       ZOrder		      -5
       OutMax		      "4095"
       OutDataTypeStr	      "single"
@@ -1184,7 +1167,7 @@ Model {
       BlockType		      FromWorkspace
       Name		      "From\nWorkspace1"
       SID		      "2384"
-      Position		      [130, 303, 195, 327]
+      Position		      [215, 233, 280, 257]
       ZOrder		      -10
       VariableName	      "AccelX"
       SampleTime	      ".001"
@@ -1194,9 +1177,9 @@ Model {
       BlockType		      FromWorkspace
       Name		      "From\nWorkspace2"
       SID		      "2385"
-      Position		      [130, 233, 195, 257]
+      Position		      [215, 298, 280, 322]
       ZOrder		      -10
-      VariableName	      "AccelY"
+      VariableName	      "AccelZ"
       SampleTime	      ".001"
       ZeroCross		      on
     }
@@ -1204,9 +1187,9 @@ Model {
       BlockType		      FromWorkspace
       Name		      "From\nWorkspace3"
       SID		      "2386"
-      Position		      [130, 378, 195, 402]
+      Position		      [215, 168, 280, 192]
       ZOrder		      -10
-      VariableName	      "GyroZ"
+      VariableName	      "GyroY"
       SampleTime	      ".001"
       ZeroCross		      on
     }
@@ -1214,7 +1197,7 @@ Model {
       BlockType		      Gain
       Name		      "Gain4"
       SID		      "2382"
-      Position		      [605, 300, 635, 330]
+      Position		      [600, 230, 630, 260]
       ZOrder		      -8
       Gain		      "-1"
       ParamDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1225,7 +1208,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto"
       SID		      "108"
-      Position		      [1305, 262, 1385, 298]
+      Position		      [990, 202, 1070, 238]
       ZOrder		      -10
       BackgroundColor	      "red"
       GotoTag		      "PitchError"
@@ -1235,7 +1218,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto1"
       SID		      "109"
-      Position		      [940, 415, 1015, 445]
+      Position		      [680, 130, 755, 160]
       ZOrder		      -10
       BackgroundColor	      "red"
       GotoTag		      "GyroRate"
@@ -1246,7 +1229,7 @@ Model {
       Name		      "Gyro Bias Calculation1"
       SID		      "193"
       Ports		      [2, 1]
-      Position		      [1085, 232, 1210, 328]
+      Position		      [825, 172, 950, 268]
       BackgroundColor	      "cyan"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -1352,7 +1335,7 @@ Model {
       Name		      "Inner/outer loop"
       SID		      "2204"
       Ports		      [2, 1]
-      Position		      [1145, 371, 1365, 469]
+      Position		      [885, 371, 1105, 469]
       BackgroundColor	      "cyan"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -1363,7 +1346,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Inner/outer loop"
-	Location		[289, 51, 1363, 740]
+	Location		[10, 82, 950, 994]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1475,7 +1458,7 @@ Model {
 	  SID			  "2214"
 	  Position		  [220, 485, 250, 515]
 	  ZOrder		  -4
-	  Value			  ".02"
+	  Value			  ".5"
 	}
 	Block {
 	  BlockType		  Constant
@@ -1483,7 +1466,7 @@ Model {
 	  SID			  "2215"
 	  Position		  [220, 430, 250, 460]
 	  ZOrder		  -4
-	  Value			  ".1"
+	  Value			  "0"
 	}
 	Block {
 	  BlockType		  Constant
@@ -1498,7 +1481,7 @@ Model {
 	  SID			  "2217"
 	  Position		  [220, 375, 250, 405]
 	  ZOrder		  -4
-	  Value			  "2"
+	  Value			  ".5"
 	}
 	Block {
 	  BlockType		  Constant
@@ -1506,7 +1489,6 @@ Model {
 	  SID			  "2218"
 	  Position		  [570, 285, 600, 315]
 	  ZOrder		  -4
-	  Value			  "10"
 	}
 	Block {
 	  BlockType		  SubSystem
@@ -1773,8 +1755,8 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [790, 140, 820, 170]
 	      InputPortMap	      "u0"
-	      UpperLimit	      "100 * (pi/180)"
-	      LowerLimit	      "-100 * (pi/180)"
+	      UpperLimit	      "pi"
+	      LowerLimit	      "-pi"
 	    }
 	    Block {
 	      BlockType		      Constant
@@ -2294,8 +2276,8 @@ Model {
 	      Ports		      [1, 1]
 	      Position		      [790, 140, 820, 170]
 	      InputPortMap	      "u0"
-	      UpperLimit	      "100 * (pi/180)"
-	      LowerLimit	      "-100 * (pi/180)"
+	      UpperLimit	      "pi"
+	      LowerLimit	      "-pi"
 	    }
 	    Block {
 	      BlockType		      Constant
@@ -2552,7 +2534,7 @@ Model {
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "Commanded Servo Angle"
+	  Name			  "Commanded Angle"
 	  SID			  "2277"
 	  Position		  [1010, 253, 1040, 267]
 	  IconDisplay		  "Port number"
@@ -2560,7 +2542,7 @@ Model {
 	Line {
 	  SrcBlock		  "Add8"
 	  SrcPort		  1
-	  DstBlock		  "Commanded Servo Angle"
+	  DstBlock		  "Commanded Angle"
 	  DstPort		  1
 	}
 	Line {
@@ -2573,16 +2555,9 @@ Model {
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, 5; 55, 0]
-	    Branch {
-	      DstBlock		      "Add"
-	      DstPort		      1
-	    }
-	    Branch {
-	      Points		      [0, -10]
-	      DstBlock		      "Add4"
-	      DstPort		      2
-	    }
+	    Points		    [0, 5]
+	    DstBlock		    "Add"
+	    DstPort		    1
 	  }
 	}
 	Line {
@@ -2680,6 +2655,13 @@ Model {
 	  DstBlock		  "Add"
 	  DstPort		  2
 	}
+	Line {
+	  SrcBlock		  "PID with External D and anti-windup5"
+	  SrcPort		  1
+	  Points		  [55, 0; 0, -50]
+	  DstBlock		  "Add4"
+	  DstPort		  2
+	}
       }
     }
     Block {
@@ -2687,7 +2669,7 @@ Model {
       Name		      "MATLAB Function"
       SID		      "2388"
       Ports		      [1, 1]
-      Position		      [490, 367, 560, 413]
+      Position		      [485, 157, 555, 203]
       ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -2805,7 +2787,7 @@ Model {
       Name		      "MATLAB Function1"
       SID		      "2392"
       Ports		      [1, 1]
-      Position		      [490, 292, 560, 338]
+      Position		      [485, 222, 555, 268]
       ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -2923,7 +2905,7 @@ Model {
       Name		      "MATLAB Function2"
       SID		      "2393"
       Ports		      [1, 1]
-      Position		      [490, 222, 560, 268]
+      Position		      [485, 287, 555, 333]
       ZOrder		      -4
       LibraryVersion	      "1.32"
       ErrorFcn		      "Stateflow.Translate.translate"
@@ -3037,34 +3019,6 @@ Model {
       }
     }
     Block {
-      BlockType		      Scope
-      Name		      "Scope"
-      SID		      "2387"
-      Ports		      [1]
-      Position		      [1395, 404, 1425, 436]
-      ZOrder		      -16
-      Floating		      off
-      Location		      [174, 374, 498, 613]
-      Open		      off
-      NumInputPorts	      "1"
-      List {
-	ListType		AxesTitles
-	axes1			"%<SignalLabel>"
-      }
-      List {
-	ListType		ScopeGraphics
-	FigureColor		"[0.5 0.5 0.5]"
-	AxesColor		"[0 0 0]"
-	AxesTickColor		"[1 1 1]"
-	LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	LineStyles		"-|-|-|-|-|-"
-	LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
-	MarkerStyles		"none|none|none|none|none|none"
-      }
-      DataFormat	      "StructureWithTime"
-      SampleTime	      "0"
-    }
-    Block {
       BlockType		      Trigonometry
       Name		      "Trigonometric\nFunction"
       SID		      "2055"
@@ -3094,23 +3048,17 @@ Model {
     Line {
       SrcBlock		      "Trigonometric\nFunction"
       SrcPort		      1
-      Points		      [190, 0; 0, 10; 150, 0; 0, 15]
+      Points		      [30, 0; 0, 15]
       Branch {
+	Points			[0, -50]
 	DstBlock		"Gyro Bias Calculation1"
 	DstPort			2
       }
       Branch {
-	Points			[0, 140]
+	Points			[0, 150]
 	DstBlock		"Inner/outer loop"
 	DstPort			2
       }
-    }
-    Line {
-      SrcBlock		      "Gain4"
-      SrcPort		      1
-      Points		      [40, 0]
-      DstBlock		      "Trigonometric\nFunction"
-      DstPort		      1
     }
     Line {
       SrcBlock		      "From\nWorkspace1"
@@ -3131,12 +3079,6 @@ Model {
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Inner/outer loop"
-      SrcPort		      1
-      DstBlock		      "Scope"
-      DstPort		      1
-    }
-    Line {
       SrcBlock		      "Data Type Conversion1"
       SrcPort		      1
       DstBlock		      "MATLAB Function1"
@@ -3151,15 +3093,15 @@ Model {
     Line {
       SrcBlock		      "MATLAB Function"
       SrcPort		      1
-      Points		      [350, 0]
+      Points		      [95, 0]
       Branch {
-	Points			[105, 0; 0, -135]
-	DstBlock		"Gyro Bias Calculation1"
+	Points			[0, -35]
+	DstBlock		"Goto1"
 	DstPort			1
       }
       Branch {
-	Points			[0, 40]
-	DstBlock		"Goto1"
+	Points			[105, 0; 0, 15]
+	DstBlock		"Gyro Bias Calculation1"
 	DstPort			1
       }
     }
@@ -3172,9 +3114,21 @@ Model {
     Line {
       SrcBlock		      "MATLAB Function2"
       SrcPort		      1
-      Points		      [115, 0]
+      Points		      [115, 0; 0, -25]
       DstBlock		      "Trigonometric\nFunction"
       DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Gain4"
+      SrcPort		      1
+      Points		      [20, 0; 0, 25]
+      DstBlock		      "Trigonometric\nFunction"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Inner/outer loop"
+      SrcPort		      1
+      Points		      [65, 0]
     }
     Annotation {
       Position		      [1835, 1161]
@@ -3183,7 +3137,7 @@ Model {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.6 (R2011b) dated Aug  6 2011, 03:32:36
+#    Stateflow Version 7.6 (R2011b) dated Aug  6 2011, 13:17:15
 #
 #
 
