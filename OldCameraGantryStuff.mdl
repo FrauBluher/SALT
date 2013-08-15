@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.106"
+    ComputedModelVersion    "1.107"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -36,11 +36,11 @@ Model {
   Creator		  "Marx"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Marx"
+  LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Aug 14 15:57:31 2013"
-  RTWModifiedTimeStamp	  298396648
-  ModelVersionFormat	  "1.%<AutoIncrement:106>"
+  LastModifiedDate	  "Wed Aug 14 22:40:08 2013"
+  RTWModifiedTimeStamp	  298419693
+  ModelVersionFormat	  "1.%<AutoIncrement:107>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -78,7 +78,6 @@ Model {
     $ObjectID		    2
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "OldCameraGantryStuff"
-    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -1107,7 +1106,7 @@ Model {
   }
   System {
     Name		    "OldCameraGantryStuff"
-    Location		    [2, 82, 1901, 1027]
+    Location		    [0, 27, 1899, 972]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1126,7 +1125,7 @@ Model {
       BlockType		      Constant
       Name		      "Constant2"
       SID		      "103"
-      Position		      [830, 380, 860, 410]
+      Position		      [780, 380, 810, 410]
       ZOrder		      -4
       Value		      "0"
     }
@@ -1208,7 +1207,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto"
       SID		      "108"
-      Position		      [990, 202, 1070, 238]
+      Position		      [930, 187, 1010, 223]
       ZOrder		      -10
       BackgroundColor	      "red"
       GotoTag		      "PitchError"
@@ -1229,7 +1228,7 @@ Model {
       Name		      "Gyro Bias Calculation1"
       SID		      "193"
       Ports		      [2, 1]
-      Position		      [825, 172, 950, 268]
+      Position		      [775, 157, 900, 253]
       BackgroundColor	      "cyan"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -1335,7 +1334,7 @@ Model {
       Name		      "Inner/outer loop"
       SID		      "2204"
       Ports		      [2, 1]
-      Position		      [885, 371, 1105, 469]
+      Position		      [835, 371, 1055, 469]
       BackgroundColor	      "cyan"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -1346,7 +1345,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Inner/outer loop"
-	Location		[10, 82, 950, 994]
+	Location		[44, 86, 984, 775]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -3050,7 +3049,6 @@ Model {
       SrcPort		      1
       Points		      [30, 0; 0, 15]
       Branch {
-	Points			[0, -50]
 	DstBlock		"Gyro Bias Calculation1"
 	DstPort			2
       }
@@ -3100,7 +3098,6 @@ Model {
 	DstPort			1
       }
       Branch {
-	Points			[105, 0; 0, 15]
 	DstBlock		"Gyro Bias Calculation1"
 	DstPort			1
       }
@@ -3137,7 +3134,7 @@ Model {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.6 (R2011b) dated Aug  6 2011, 13:17:15
+#    Stateflow Version 7.6 (R2011b) dated Aug  6 2011, 03:32:36
 #
 #
 
