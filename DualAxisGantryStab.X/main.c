@@ -26,6 +26,7 @@ void IMU2String(char *output, MPU6050_Data input);
 void ClockInit();
 void MotorInit();
 void TimersInit();
+void PinInit();
 
 
 MPU6050_Data imuData;
@@ -49,14 +50,15 @@ extern D_Work_SALTStabilizationInnerOu SALTStabilizationInnerOut_DWork;
 int main(void)
 {
 	ClockInit();
-	//SALTStabilizationInnerOuterLoop_initialize();
+	PinInit();
+	SALTStabilizationInnerOuterLoop_initialize();
 	TimersInit();
 	MotorInit();
 
 	CommandedX = 0;
 	CommandedY = 0;
-	torqueInputX = 50;
-	torqueInputY = 50;
+	torqueInputX = 100;
+	torqueInputY = 100;
 
 	I2C_Init(9600);
 	I2C1BRG = 0x4E;
@@ -184,6 +186,31 @@ void ClockInit(void)
 #endif
 }
 
+void PinInit(void)
+{
+	TRISBbits.TRISB12 = 0;
+	TRISBbits.TRISB13 = 0;
+	TRISDbits.TRISD11 = 0;
+	TRISDbits.TRISD10 = 0;
+	TRISDbits.TRISD0 = 0;
+	TRISDbits.TRISD1 = 0;
+	TRISDbits.TRISD2 = 0;
+	TRISDbits.TRISD12 = 0;
+	TRISCbits.TRISC13 = 0;
+	TRISCbits.TRISC14 = 0;
+
+	LATBbits.LATB14 = 1;
+	LATBbits.LATB15 = 1;
+	
+	LATDbits.LATD0 = 1;
+	LATDbits.LATD1 = 1;
+	LATDbits.LATD2 = 1;
+	LATDbits.LATD12 = 1;
+	LATCbits.LATC13 = 1;
+	LATCbits.LATC14 = 1;
+
+}
+
 void TimersInit(void)
 {
 	T1CONbits.TON = 0;
@@ -225,14 +252,14 @@ void __attribute__((__interrupt__, no_auto_psv)) _T1Interrupt(void)
 	GyroY = (real32_T) imuData.gyroY;
 	GyroZ = (real32_T) imuData.gyroZ;
 
-	//SALTStabilizationInnerOuterLoop_step();
+	SALTStabilizationInnerOuterLoop_step();
 
-//	PDC1 = (uint16_t) SALTStabilizationInnerOut_DWork.T1;
-//	PDC2 = (uint16_t) SALTStabilizationInnerOut_DWork.T2;
-//	PDC3 = (uint16_t) SALTStabilizationInnerOut_DWork.T3;
-//	PDC4 = (uint16_t) SALTStabilizationInnerOut_DWork.T4;
-//	PDC5 = (uint16_t) SALTStabilizationInnerOut_DWork.T5;
-//	PDC6 = (uint16_t) SALTStabilizationInnerOut_DWork.T6;
+	PDC1 = (uint16_t) SALTStabilizationInnerOut_DWork.T1;
+	PDC2 = (uint16_t) SALTStabilizationInnerOut_DWork.T2;
+	PDC3 = (uint16_t) SALTStabilizationInnerOut_DWork.T3;
+	PDC4 = (uint16_t) SALTStabilizationInnerOut_DWork.T4;
+	PDC5 = (uint16_t) SALTStabilizationInnerOut_DWork.T5;
+	PDC6 = (uint16_t) SALTStabilizationInnerOut_DWork.T6;
 
 	LATDbits.LATD11 = 1;
 	IFS0bits.T1IF = 0; // Clear Timer1 Interrupt Flag

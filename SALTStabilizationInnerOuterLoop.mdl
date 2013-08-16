@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.11"
+    ComputedModelVersion    "1.12"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -36,11 +36,11 @@ Model {
   Creator		  "root"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Pavlo"
+  LastModifiedBy	  "Marx"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Aug 15 19:09:27 2013"
-  RTWModifiedTimeStamp	  298494556
-  ModelVersionFormat	  "1.%<AutoIncrement:11>"
+  LastModifiedDate	  "Fri Aug 16 12:47:38 2013"
+  RTWModifiedTimeStamp	  298558049
+  ModelVersionFormat	  "1.%<AutoIncrement:12>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -78,6 +78,7 @@ Model {
     $ObjectID		    2
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "SALTStabilizationInnerOuterLoop"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -619,8 +620,8 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Hardware Implementation"
-      ConfigPrmDlgPosition     [ 512, 100, 1409, 896 ] 
+      CurrentDlgPage	      "Code Generation"
+      ConfigPrmDlgPosition     [ 504, 70, 1417, 904 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -962,7 +963,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "740"
+    SIDHighWatermark	    "741"
     Block {
       BlockType		      DataStoreMemory
       Name		      "Data Store\nMemory"
@@ -1813,6 +1814,16 @@ Model {
       }
     }
     Block {
+      BlockType		      Gain
+      Name		      "Gain"
+      SID		      "741"
+      Position		      [750, 405, 780, 435]
+      ZOrder		      -8
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
       BlockType		      Mux
       Name		      "Mux"
       SID		      "703"
@@ -2242,6 +2253,7 @@ Model {
 	      SID		      "624"
 	      Position		      [650, 285, 680, 315]
 	      ZOrder		      -4
+	      Value		      "2"
 	    }
 	    Block {
 	      BlockType		      SubSystem
@@ -3894,7 +3906,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Y Axis Inner Outer Loop"
-	Location		[627, 499, 1609, 907]
+	Location		[2, 82, 1918, 1027]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -4022,7 +4034,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Gyro Bias Calculation1"
-	    Location		    [763, 638, 1680, 1141]
+	    Location		    [482, 306, 1399, 809]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -4037,14 +4049,14 @@ Model {
 	    ZoomFactor		    "100"
 	    Block {
 	      BlockType		      Inport
-	      Name		      "RollRateIn"
+	      Name		      "Theta Dot Gyro"
 	      SID		      "9"
 	      Position		      [45, 38, 75, 52]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "Theta"
+	      Name		      "Theta Hat Accel"
 	      SID		      "10"
 	      Position		      [45, 133, 75, 147]
 	      Port		      "2"
@@ -4086,7 +4098,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      SrcBlock		      "RollRateIn"
+	      SrcBlock		      "Theta Dot Gyro"
 	      SrcPort		      1
 	      DstBlock		      "Discrete-Time\nIntegrator"
 	      DstPort		      1
@@ -4104,7 +4116,7 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "Theta"
+	      SrcBlock		      "Theta Hat Accel"
 	      SrcPort		      1
 	      Points		      [120, 0; 0, -80]
 	      DstBlock		      "Add"
@@ -6491,7 +6503,6 @@ Model {
 	    Line {
 	      SrcBlock		      "AxBx"
 	      SrcPort		      1
-	      Points		      [0, 20]
 	      DstBlock		      "sumx"
 	      DstPort		      1
 	    }
@@ -6902,7 +6913,6 @@ Model {
 	    Line {
 	      SrcBlock		      "AxBx"
 	      SrcPort		      1
-	      Points		      [0, 20]
 	      DstBlock		      "sumx"
 	      DstPort		      1
 	    }
@@ -7045,7 +7055,7 @@ Model {
     Line {
       SrcBlock		      "Y Axis Inner Outer Loop"
       SrcPort		      1
-      DstBlock		      "Trigonometric\nFunction"
+      DstBlock		      "Gain"
       DstPort		      1
     }
     Line {
@@ -7224,6 +7234,12 @@ Model {
       Points		      [35, 0; 0, -65]
       DstBlock		      "dq-to-alphabeta1"
       DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Gain"
+      SrcPort		      1
+      DstBlock		      "Trigonometric\nFunction"
+      DstPort		      1
     }
   }
 }
@@ -7944,8 +7960,6 @@ Stateflow {
     firstJunction	    46
     viewObj		    44
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    21
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -8189,8 +8203,6 @@ Stateflow {
     firstJunction	    58
     viewObj		    56
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    21
     decomposition	    CLUSTER_CHART
     type		    EML_CHART

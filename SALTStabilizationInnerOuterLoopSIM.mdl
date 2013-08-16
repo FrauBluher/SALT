@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.13"
+    ComputedModelVersion    "1.19"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -36,11 +36,11 @@ Model {
   Creator		  "root"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Pavlo"
+  LastModifiedBy	  "Marx"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Aug 15 19:47:40 2013"
-  RTWModifiedTimeStamp	  298495219
-  ModelVersionFormat	  "1.%<AutoIncrement:13>"
+  LastModifiedDate	  "Fri Aug 16 14:09:22 2013"
+  RTWModifiedTimeStamp	  298556718
+  ModelVersionFormat	  "1.%<AutoIncrement:19>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -78,6 +78,7 @@ Model {
     $ObjectID		    2
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "SALTStabilizationInnerOuterLoop"
+    signals_		    []
     overrideMode_	    [0.0]
     Array {
       Type		      "Cell"
@@ -760,6 +761,15 @@ Model {
       RTWStateStorageClass    "Auto"
     }
     Block {
+      BlockType		      DiscreteZeroPole
+      Zeros		      "[1]"
+      Poles		      "[0 1]"
+      Gain		      "[1]"
+      SampleTime	      "1"
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+    }
+    Block {
       BlockType		      From
       IconDisplay	      "Tag"
       TagVisibility	      "local"
@@ -970,10 +980,19 @@ Model {
       OutputSignalType	      "auto"
       SampleTime	      "-1"
     }
+    Block {
+      BlockType		      UnitDelay
+      X0		      "0"
+      InputProcessing	      "Inherited"
+      SampleTime	      "1"
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+      HasFrameUpgradeWarning  on
+    }
   }
   System {
     Name		    "SALTStabilizationInnerOuterLoopSIM"
-    Location		    [-81, 461, 1835, 1405]
+    Location		    [2, 74, 1918, 1019]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -987,12 +1006,12 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "749"
+    SIDHighWatermark	    "794"
     Block {
       BlockType		      Constant
       Name		      "Constant"
       SID		      "745"
-      Position		      [475, 500, 505, 530]
+      Position		      [420, 500, 450, 530]
       ZOrder		      -4
       Value		      "0"
     }
@@ -1518,7 +1537,7 @@ Model {
       BlockType		      FromWorkspace
       Name		      "From\nWorkspace"
       SID		      "741"
-      Position		      [465, 308, 530, 332]
+      Position		      [425, 308, 490, 332]
       ZOrder		      -10
       VariableName	      "GyroX"
       SampleTime	      "0"
@@ -1563,8 +1582,8 @@ Model {
       Position		      [1760, 264, 1790, 296]
       ZOrder		      -16
       Floating		      off
-      Location		      [1921, 228, 3361, 1079]
-      Open		      on
+      Location		      [1921, 48, 3201, 1023]
+      Open		      off
       NumInputPorts	      "3"
       List {
 	ListType		AxesTitles
@@ -1611,7 +1630,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Y Axis Inner Outer Loop"
-	Location		[627, 499, 1609, 907]
+	Location		[646, 450, 1791, 858]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1660,76 +1679,11 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "Data Type Conversion"
-	  SID			  "2"
-	  Position		  [120, 188, 195, 222]
-	  ZOrder		  -5
-	  OutMax		  "4095"
-	  OutDataTypeStr	  "single"
-	  RndMeth		  "Floor"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "Data Type Conversion1"
-	  SID			  "3"
-	  Position		  [120, 123, 195, 157]
-	  ZOrder		  -5
-	  OutMax		  "4095"
-	  OutDataTypeStr	  "single"
-	  RndMeth		  "Floor"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "Data Type Conversion2"
-	  SID			  "4"
-	  Position		  [120, 58, 195, 92]
-	  ZOrder		  -5
-	  OutMax		  "4095"
-	  OutDataTypeStr	  "single"
-	  RndMeth		  "Simplest"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Gain
-	  Name			  "Gain4"
-	  SID			  "5"
-	  Position		  [400, 125, 430, 155]
-	  ZOrder		  -8
-	  Gain			  "-1"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Goto
-	  Name			  "Goto"
-	  SID			  "6"
-	  Position		  [730, 82, 810, 118]
-	  ZOrder		  -10
-	  BackgroundColor	  "red"
-	  GotoTag		  "PitchErrorY"
-	  TagVisibility		  "global"
-	}
-	Block {
-	  BlockType		  Goto
-	  Name			  "Goto1"
-	  SID			  "7"
-	  Position		  [480, 25, 555, 55]
-	  ZOrder		  -10
-	  BackgroundColor	  "red"
-	  GotoTag		  "GyroRateY"
-	  TagVisibility		  "global"
-	}
-	Block {
 	  BlockType		  SubSystem
-	  Name			  "Gyro Bias Calculation1"
-	  SID			  "8"
+	  Name			  "CompFiltRate"
+	  SID			  "766"
 	  Ports			  [2, 1]
-	  Position		  [575, 52, 700, 148]
-	  BackgroundColor	  "cyan"
+	  Position		  [635, 190, 710, 245]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -1737,9 +1691,23 @@ Model {
 	  Opaque		  off
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
+	  MaskPromptString	  "Cutoff Freq (rad/sec)|Sample Time"
+	  MaskStyleString	  "edit,edit"
+	  MaskVariables		  "omega=@1;T=@2;"
+	  MaskTunableValueString  "on,on"
+	  MaskCallbackString	  "|"
+	  MaskEnableString	  "on,on"
+	  MaskVisibilityString	  "on,on"
+	  MaskToolTipString	  "on,on"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "2*pi*3|T_step"
 	  System {
-	    Name		    "Gyro Bias Calculation1"
-	    Location		    [763, 638, 1680, 1141]
+	    Name		    "CompFiltRate"
+	    Location		    [322, 82, 1598, 1011]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1754,87 +1722,327 @@ Model {
 	    ZoomFactor		    "100"
 	    Block {
 	      BlockType		      Inport
-	      Name		      "RollRateIn"
-	      SID		      "9"
-	      Position		      [45, 38, 75, 52]
+	      Name		      "Rate"
+	      SID		      "767"
+	      Position		      [35, 23, 65, 37]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "Theta"
-	      SID		      "10"
-	      Position		      [45, 133, 75, 147]
+	      Name		      "LoPass"
+	      SID		      "768"
+	      Position		      [35, 78, 65, 92]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
+	      BlockType		      SubSystem
+	      Name		      "1D Filter1"
+	      SID		      "769"
+	      Ports		      [1, 1]
+	      Position		      [285, 58, 335, 112]
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Reusable function"
+	      RTWFcnNameOpts	      "User specified"
+	      RTWFcnName	      "TustinFilter3D"
+	      RTWFileNameOpts	      "Use function name"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      MaskPromptString	      "Zeros|Poles|Gains|Sample Time"
+	      MaskStyleString	      "edit,edit,edit,edit"
+	      MaskVariables	      "zval=@1;pval=@2;kval=@3;TSample=@4;"
+	      MaskTunableValueString  "on,on,on,on"
+	      MaskCallbackString      "|||"
+	      MaskEnableString	      "on,on,on,on"
+	      MaskVisibilityString    "on,on,on,on"
+	      MaskToolTipString	      "on,on,on,on"
+	      MaskDisplay	      "droots(zval,pval,kval)\nport_label('input',1,'1D')\n"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      on
+	      MaskIconRotate	      "none"
+	      MaskPortRotate	      "default"
+	      MaskIconUnits	      "autoscale"
+	      MaskValueString	      "[]|[0]|1|T"
+	      System {
+		Name			"1D Filter1"
+		Location		[2, 82, 1244, 871]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "In1"
+		  SID			  "770"
+		  Position		  [95, 123, 125, 137]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  DataTypeConversion
+		  Name			  "Data Type Conversion1"
+		  SID			  "771"
+		  Position		  [360, 116, 410, 144]
+		  ShowName		  off
+		  OutDataTypeStr	  "single"
+		  RndMeth		  "Floor"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  DataTypeConversion
+		  Name			  "Data Type Conversion2"
+		  SID			  "772"
+		  Position		  [160, 118, 210, 142]
+		  ShowName		  off
+		  OutDataTypeStr	  "double"
+		  RndMeth		  "Floor"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Filter2"
+		  SID			  "773"
+		  Ports			  [1, 1]
+		  Position		  [250, 102, 310, 158]
+		  ShowName		  off
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  MaskType		  "DiscretizedZeroPole"
+		  MaskDescription	  "Continuous mask uses c2d to transform parameters onto the Discrete Zero-Pole block inside."
+		  MaskPromptString	  "Zeros (enter in s-main:)|Poles (enter in s-domain:)|Gain (enter in s-domain:)|Absolute toleran"
+		  "ce:|Sample time:|Method:|Critical Frequency (Hz):"
+		  MaskStyleString	  "edit,edit,edit,edit,edit,popup(zoh|foh|tustin|prewarp|matched),edit"
+		  MaskVariables		  "Zeros=@1;Poles=@2;Gain=@3;AbsTol=&4;SampleTime=@5;method=&6;Wc=@7;"
+		  MaskTunableValueString  "on,on,on,on,on,on,on"
+		  MaskCallbackString	  "|||||hidecrit|"
+		  MaskEnableString	  "on,on,on,on,on,on,on"
+		  MaskVisibilityString	  "on,on,on,on,on,on,off"
+		  MaskToolTipString	  "on,on,on,on,on,on,on"
+		  MaskInitialization	  "st=SampleTime;\nif length(st)>1\n    st=SampleTime(1);\nend\nif(st>0)\n    [zerosd,polesd,ga"
+		  "ind] = sldiscutil('disczpk', {st,method,Wc,Zeros,Poles,Gain});\nend	\ns = get_param(gcb,'maskvalues');\nzeross = s"
+		  "{1};\npoless = s{2};\ngainss = s{3};\n%zerosc = eval(zeross);\n%polesc = eval(poless);\n%gainsc = eval(gainss);\ns"
+		  "ldiscutil('initzpkmask', st);\nif(st==0)\nset_param([gcb '/Zero Pole'], 'AbsoluteTolerance', AbsTol);\nend"
+		  MaskSelfModifiable	  on
+		  MaskDisplay		  "droots(zeross,poless,gainss)\ntext( 0.5, 1.0, method, 'verticalAlignment','top')"
+		  MaskIconFrame		  on
+		  MaskIconOpaque	  on
+		  MaskIconRotate	  "port"
+		  MaskPortRotate	  "default"
+		  MaskIconUnits		  "normalized"
+		  MaskValueString	  "zval|pval|kval|auto|TSample|tustin|1"
+		  System {
+		    Name		    "Filter2"
+		    Location		    [499, 330, 884, 606]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    SIDHighWatermark	    "3"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In1"
+		    SID			    "773:1"
+		    Position		    [60, 103, 90, 117]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    DiscreteZeroPole
+		    Name		    "Discrete\nZero-Pole"
+		    SID			    "773:2"
+		    Position		    [115, 92, 200, 128]
+		    Zeros		    "zerosd"
+		    Poles		    "polesd"
+		    Gain		    "gaind"
+		    SampleTime		    "SampleTime"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Out1"
+		    SID			    "773:3"
+		    Position		    [235, 103, 265, 117]
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "Discrete\nZero-Pole"
+		    SrcPort		    1
+		    DstBlock		    "Out1"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "In1"
+		    SrcPort		    1
+		    DstBlock		    "Discrete\nZero-Pole"
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out1"
+		  SID			  "774"
+		  Position		  [485, 123, 515, 137]
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  "Data Type Conversion1"
+		  SrcPort		  1
+		  DstBlock		  "Out1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Data Type Conversion2"
+		  SrcPort		  1
+		  DstBlock		  "Filter2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "In1"
+		  SrcPort		  1
+		  DstBlock		  "Data Type Conversion2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Filter2"
+		  SrcPort		  1
+		  DstBlock		  "Data Type Conversion1"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Gain"
+	      SID		      "775"
+	      Position		      [155, 70, 185, 100]
+	      Gain		      "omega"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
 	      BlockType		      Sum
-	      Name		      "Add"
-	      SID		      "11"
+	      Name		      "Sum"
+	      SID		      "776"
 	      Ports		      [2, 1]
-	      Position		      [340, 37, 370, 68]
-	      ZOrder		      -2
-	      Inputs		      "+-"
+	      Position		      [235, 75, 255, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "++|"
 	      InputSameDT	      off
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
 	      SaturateOnIntegerOverflow	off
 	    }
 	    Block {
-	      BlockType		      DiscreteIntegrator
-	      Name		      "Discrete-Time\nIntegrator"
-	      SID		      "12"
-	      Ports		      [1, 1]
-	      Position		      [150, 29, 185, 61]
-	      ZOrder		      -7
-	      IntegratorMethod	      "Integration: Trapezoidal"
-	      ExternalReset	      "none"
-	      InitialConditionSource  "internal"
-	      SampleTime	      "T_step"
-	      UpperSaturationLimit    "1"
-	      LowerSaturationLimit    "-1"
-	      ICPrevOutput	      "DiscIntNeverNeededParam"
-	      ICPrevScaledInput	      "DiscIntNeverNeededParam"
+	      BlockType		      Sum
+	      Name		      "Sum1"
+	      SID		      "777"
+	      Ports		      [2, 1]
+	      Position		      [110, 75, 130, 95]
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|+-"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      UnitDelay
+	      Name		      "Unit Delay"
+	      SID		      "778"
+	      Position		      [235, 173, 270, 207]
+	      BlockMirror	      on
+	      SampleTime	      "T"
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "Pitch Error"
-	      SID		      "13"
-	      Position		      [485, 48, 515, 62]
+	      Name		      "Blend"
+	      SID		      "779"
+	      Position		      [380, 78, 410, 92]
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      SrcBlock		      "RollRateIn"
+	      SrcBlock		      "Unit Delay"
 	      SrcPort		      1
-	      DstBlock		      "Discrete-Time\nIntegrator"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Add"
-	      SrcPort		      1
-	      DstBlock		      "Pitch Error"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Discrete-Time\nIntegrator"
-	      SrcPort		      1
-	      DstBlock		      "Add"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Theta"
-	      SrcPort		      1
-	      Points		      [120, 0; 0, -80]
-	      DstBlock		      "Add"
+	      Points		      [-110, 0]
+	      DstBlock		      "Sum1"
 	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "LoPass"
+	      SrcPort		      1
+	      DstBlock		      "Sum1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum1"
+	      SrcPort		      1
+	      DstBlock		      "Gain"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Gain"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Rate"
+	      SrcPort		      1
+	      Points		      [175, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "1D Filter1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "1D Filter1"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      Branch {
+		Points			[0, 105]
+		DstBlock		"Unit Delay"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Blend"
+		DstPort			1
+	      }
 	    }
 	  }
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Inner/outer loop"
+	  Name			  "Controller"
 	  SID			  "14"
 	  Ports			  [2, 1]
-	  Position		  [635, 266, 855, 364]
+	  Position		  [795, 261, 1015, 359]
 	  BackgroundColor	  "cyan"
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
@@ -1844,8 +2052,8 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Inner/outer loop"
-	    Location		    [409, 247, 1772, 953]
+	    Name		    "Controller"
+	    Location		    [1922, 74, 3198, 1003]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1937,6 +2145,7 @@ Model {
 	      SID		      "22"
 	      Position		      [15, 291, 75, 319]
 	      ZOrder		      -9
+	      BackgroundColor	      "red"
 	      GotoTag		      "PitchErrorY"
 	      TagVisibility	      "global"
 	    }
@@ -1946,6 +2155,7 @@ Model {
 	      SID		      "23"
 	      Position		      [15, 341, 75, 369]
 	      ZOrder		      -9
+	      BackgroundColor	      "red"
 	      GotoTag		      "GyroRateY"
 	      TagVisibility	      "global"
 	    }
@@ -1984,8 +2194,9 @@ Model {
 	      BlockType		      Constant
 	      Name		      "Kp 2"
 	      SID		      "28"
-	      Position		      [650, 285, 680, 315]
+	      Position		      [650, 280, 680, 310]
 	      ZOrder		      -4
+	      Value		      "2"
 	    }
 	    Block {
 	      BlockType		      SubSystem
@@ -2002,7 +2213,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"PID with External D and anti-windup4"
-		Location		[791, 238, 1828, 887]
+		Location		[2024, 289, 3061, 938]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -3030,6 +3241,38 @@ Model {
 	      }
 	    }
 	    Block {
+	      BlockType		      Scope
+	      Name		      "Scope1"
+	      SID		      "751"
+	      Ports		      [2]
+	      Position		      [395, 96, 425, 129]
+	      ZOrder		      -16
+	      Floating		      off
+	      Location		      [635, 48, 1915, 1023]
+	      Open		      off
+	      NumInputPorts	      "2"
+	      List {
+		ListType		AxesTitles
+		axes1			"%<SignalLabel>"
+		axes2			"%<SignalLabel>"
+	      }
+	      List {
+		ListType		ScopeGraphics
+		FigureColor		"[0.5 0.5 0.5]"
+		AxesColor		"[0 0 0]"
+		AxesTickColor		"[1 1 1]"
+		LineColors		"[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+		LineStyles		"-|-|-|-|-|-"
+		LineWidths		"[0.5 0.5 0.5 0.5 0.5 0.5]"
+		MarkerStyles		"none|none|none|none|none|none"
+	      }
+	      YMin		      "-8000~-0.45"
+	      YMax		      "10000~0.35"
+	      SaveName		      "ScopeData2"
+	      DataFormat	      "StructureWithTime"
+	      SampleTime	      "0"
+	    }
+	    Block {
 	      BlockType		      Outport
 	      Name		      "Commanded Angle"
 	      SID		      "87"
@@ -3087,7 +3330,7 @@ Model {
 	    Line {
 	      SrcBlock		      "Kp 2"
 	      SrcPort		      1
-	      Points		      [0, -35]
+	      Points		      [0, -30]
 	      DstBlock		      "PID with External D and anti-windup4"
 	      DstPort		      3
 	    }
@@ -3151,6 +3394,184 @@ Model {
 	      Points		      [55, 0; 0, -25]
 	      DstBlock		      "Add1"
 	      DstPort		      1
+	    }
+	    Annotation {
+	      Name		      "Gyro PID"
+	      Position		      [234, 158]
+	    }
+	    Annotation {
+	      Name		      "Accel PID"
+	      Position		      [634, 160]
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "Data Type Conversion"
+	  SID			  "2"
+	  Position		  [120, 188, 195, 222]
+	  ZOrder		  -5
+	  OutMax		  "4095"
+	  OutDataTypeStr	  "single"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "Data Type Conversion1"
+	  SID			  "3"
+	  Position		  [120, 123, 195, 157]
+	  ZOrder		  -5
+	  OutMax		  "4095"
+	  OutDataTypeStr	  "single"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "Data Type Conversion2"
+	  SID			  "4"
+	  Position		  [120, 58, 195, 92]
+	  ZOrder		  -5
+	  OutMax		  "4095"
+	  OutDataTypeStr	  "single"
+	  RndMeth		  "Simplest"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain4"
+	  SID			  "5"
+	  Position		  [400, 125, 430, 155]
+	  ZOrder		  -8
+	  Gain			  "-1"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto"
+	  SID			  "6"
+	  Position		  [730, 82, 810, 118]
+	  ZOrder		  -10
+	  BackgroundColor	  "red"
+	  GotoTag		  "PitchErrorY"
+	  TagVisibility		  "global"
+	}
+	Block {
+	  BlockType		  Goto
+	  Name			  "Goto1"
+	  SID			  "7"
+	  Position		  [480, 25, 555, 55]
+	  ZOrder		  -10
+	  BackgroundColor	  "red"
+	  GotoTag		  "GyroRateY"
+	  TagVisibility		  "global"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Gyro Bias Calculation1"
+	  SID			  "8"
+	  Ports			  [2, 1]
+	  Position		  [575, 52, 700, 148]
+	  BackgroundColor	  "cyan"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Gyro Bias Calculation1"
+	    Location		    [894, 377, 1811, 880]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Theta Dot Gyro"
+	      SID		      "9"
+	      Position		      [45, 38, 75, 52]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Theta Hat Accel"
+	      SID		      "10"
+	      Position		      [45, 133, 75, 147]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Add"
+	      SID		      "11"
+	      Ports		      [2, 1]
+	      Position		      [340, 37, 370, 68]
+	      ZOrder		      -2
+	      Inputs		      "+-"
+	      InputSameDT	      off
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      DiscreteIntegrator
+	      Name		      "Discrete-Time\nIntegrator"
+	      SID		      "12"
+	      Ports		      [1, 1]
+	      Position		      [150, 29, 185, 61]
+	      ZOrder		      -7
+	      IntegratorMethod	      "Integration: Trapezoidal"
+	      ExternalReset	      "none"
+	      InitialConditionSource  "internal"
+	      SampleTime	      "T_step"
+	      UpperSaturationLimit    "1"
+	      LowerSaturationLimit    "-1"
+	      ICPrevOutput	      "DiscIntNeverNeededParam"
+	      ICPrevScaledInput	      "DiscIntNeverNeededParam"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Pitch Error"
+	      SID		      "13"
+	      Position		      [485, 48, 515, 62]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Theta Dot Gyro"
+	      SrcPort		      1
+	      DstBlock		      "Discrete-Time\nIntegrator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Add"
+	      SrcPort		      1
+	      DstBlock		      "Pitch Error"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Discrete-Time\nIntegrator"
+	      SrcPort		      1
+	      DstBlock		      "Add"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Theta Hat Accel"
+	      SrcPort		      1
+	      Points		      [120, 0; 0, -80]
+	      DstBlock		      "Add"
+	      DstPort		      2
 	    }
 	  }
 	}
@@ -3509,6 +3930,36 @@ Model {
 	  }
 	}
 	Block {
+	  BlockType		  Scope
+	  Name			  "Scope"
+	  SID			  "780"
+	  Ports			  [1]
+	  Position		  [820, 184, 850, 216]
+	  ZOrder		  -16
+	  Floating		  off
+	  Location		  [1921, 48, 3201, 1023]
+	  Open			  on
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  List {
+	    ListType		    ScopeGraphics
+	    FigureColor		    "[0.5 0.5 0.5]"
+	    AxesColor		    "[0 0 0]"
+	    AxesTickColor	    "[1 1 1]"
+	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
+	    LineStyles		    "-|-|-|-|-|-"
+	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
+	    MarkerStyles	    "none|none|none|none|none|none"
+	  }
+	  SaveName		  "ScopeData1"
+	  DataFormat		  "StructureWithTime"
+	  MaxDataPoints		  "6000"
+	  SampleTime		  "0"
+	}
+	Block {
 	  BlockType		  Trigonometry
 	  Name			  "Trigonometric\nFunction"
 	  SID			  "91"
@@ -3519,9 +3970,9 @@ Model {
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "Angle Correction"
+	  Name			  "Control Output"
 	  SID			  "109"
-	  Position		  [910, 308, 940, 322]
+	  Position		  [1070, 303, 1100, 317]
 	  ZOrder		  -23
 	  IconDisplay		  "Port number"
 	}
@@ -3544,9 +3995,9 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Inner/outer loop"
+	  SrcBlock		  "Controller"
 	  SrcPort		  1
-	  DstBlock		  "Angle Correction"
+	  DstBlock		  "Control Output"
 	  DstPort		  1
 	}
 	Line {
@@ -3579,8 +4030,16 @@ Model {
 	    DstPort		    1
 	  }
 	  Branch {
-	    DstBlock		    "Gyro Bias Calculation1"
-	    DstPort		    1
+	    Points		    [95, 0]
+	    Branch {
+	      DstBlock		      "Gyro Bias Calculation1"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [0, 130]
+	      DstBlock		      "CompFiltRate"
+	      DstPort		      1
+	    }
 	  }
 	}
 	Line {
@@ -3598,14 +4057,22 @@ Model {
 	Line {
 	  SrcBlock		  "Trigonometric\nFunction"
 	  SrcPort		  1
-	  Points		  [30, 0; 0, 15]
+	  Points		  [5, 0]
 	  Branch {
-	    DstBlock		    "Gyro Bias Calculation1"
-	    DstPort		    2
+	    Points		    [25, 0; 0, 15]
+	    Branch {
+	      DstBlock		      "Gyro Bias Calculation1"
+	      DstPort		      2
+	    }
+	    Branch {
+	      Points		      [0, 145]
+	      DstBlock		      "Controller"
+	      DstPort		      2
+	    }
 	  }
 	  Branch {
-	    Points		    [0, 150]
-	    DstBlock		    "Inner/outer loop"
+	    Points		    [0, 55]
+	    DstBlock		    "CompFiltRate"
 	    DstPort		    2
 	  }
 	}
@@ -3624,9 +4091,19 @@ Model {
 	Line {
 	  SrcBlock		  "Commanded"
 	  SrcPort		  1
-	  Points		  [0, 5]
-	  DstBlock		  "Inner/outer loop"
+	  DstBlock		  "Controller"
 	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "CompFiltRate"
+	  SrcPort		  1
+	  Points		  [45, 0; 0, -20]
+	  DstBlock		  "Scope"
+	  DstPort		  1
+	}
+	Annotation {
+	  Name			  "Position Estimation"
+	  Position		  [328, 21]
 	}
       }
     }
@@ -4286,7 +4763,7 @@ Model {
     Line {
       SrcBlock		      "From\nWorkspace"
       SrcPort		      1
-      Points		      [0, 55]
+      Points		      [40, 0; 0, 55]
       DstBlock		      "Y Axis Inner Outer Loop"
       DstPort		      1
     }
@@ -4307,7 +4784,7 @@ Model {
     Line {
       SrcBlock		      "Constant"
       SrcPort		      1
-      Points		      [15, 0; 0, -50]
+      Points		      [70, 0; 0, -50]
       DstBlock		      "Y Axis Inner Outer Loop"
       DstPort		      4
     }
