@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'SALTStabilizationInnerOuterLoop'.
  *
- * Model version                  : 1.10
+ * Model version                  : 1.16
  * Simulink Coder version         : 8.1 (R2011b) 08-Jul-2011
  * TLC version                    : 8.1 (Jul  9 2011)
- * C/C++ source code generated on : Thu Aug 15 17:30:24 2013
+ * C/C++ source code generated on : Fri Aug 16 18:44:18 2013
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Microchip->dsPIC

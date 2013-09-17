@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'SALTStabilizationInnerOuterLoop'.
  *
- * Model version                  : 1.10
+ * Model version                  : 1.16
  * Simulink Coder version         : 8.1 (R2011b) 08-Jul-2011
  * TLC version                    : 8.1 (Jul  9 2011)
- * C/C++ source code generated on : Thu Aug 15 17:30:24 2013
+ * C/C++ source code generated on : Fri Aug 16 18:44:18 2013
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Microchip->dsPIC
@@ -47,42 +47,54 @@ typedef struct {
   real32_T sector;                     /* '<Root>/Duty Cycles' */
 } rtB_DutyCycles_SALTStabilizatio;
 
-/* Block signals for system '<S3>/MATLAB Function' */
+/* Block signals for system '<S5>/MATLAB Function' */
 typedef struct {
-  real32_T y;                          /* '<S3>/MATLAB Function' */
+  real32_T y;                          /* '<S5>/MATLAB Function' */
 } rtB_MATLABFunction_SALTStabiliz;
 
-/* Block signals for system '<S3>/MATLAB Function1' */
+/* Block signals for system '<S5>/MATLAB Function1' */
 typedef struct {
-  real32_T y;                          /* '<S3>/MATLAB Function1' */
+  real32_T y;                          /* '<S5>/MATLAB Function1' */
 } rtB_MATLABFunction1_SALTStabili;
+
+/* Block signals for system '<S16>/Embedded MATLAB Function' */
+typedef struct {
+  real32_T y;                          /* '<S16>/Embedded MATLAB Function' */
+} rtB_EmbeddedMATLABFunction_SALT;
+
+/* Block states (auto storage) for system '<S16>/Embedded MATLAB Function' */
+typedef struct {
+  real_T a;                            /* '<S16>/Embedded MATLAB Function' */
+  real_T b;                            /* '<S16>/Embedded MATLAB Function' */
+  real32_T y_km1;                      /* '<S16>/Embedded MATLAB Function' */
+  real32_T u_km1;                      /* '<S16>/Embedded MATLAB Function' */
+  boolean_T a_not_empty;               /* '<S16>/Embedded MATLAB Function' */
+} rtDW_EmbeddedMATLABFunction_SAL;
 
 /* Block signals (auto storage) */
 typedef struct {
-  rtB_MATLABFunction1_SALTStabili sf_MATLABFunction2_b;/* '<S4>/MATLAB Function2' */
-  rtB_MATLABFunction1_SALTStabili sf_MATLABFunction1_i;/* '<S4>/MATLAB Function1' */
-  rtB_MATLABFunction_SALTStabiliz sf_MATLABFunction_b;/* '<S4>/MATLAB Function' */
-  rtB_MATLABFunction1_SALTStabili sf_MATLABFunction2;/* '<S3>/MATLAB Function2' */
-  rtB_MATLABFunction1_SALTStabili sf_MATLABFunction1;/* '<S3>/MATLAB Function1' */
-  rtB_MATLABFunction_SALTStabiliz sf_MATLABFunction;/* '<S3>/MATLAB Function' */
+  rtB_EmbeddedMATLABFunction_SALT sf_EmbeddedMATLABFunction_k;/* '<S24>/Embedded MATLAB Function' */
+  rtB_EmbeddedMATLABFunction_SALT sf_EmbeddedMATLABFunction;/* '<S23>/Embedded MATLAB Function' */
+  rtB_MATLABFunction1_SALTStabili sf_MATLABFunction2;/* '<S6>/MATLAB Function2' */
+  rtB_MATLABFunction1_SALTStabili sf_MATLABFunction1;/* '<S6>/MATLAB Function1' */
+  rtB_MATLABFunction_SALTStabiliz sf_MATLABFunction;/* '<S6>/MATLAB Function' */
+  rtB_EmbeddedMATLABFunction_SALT sf_EmbeddedMATLABFunction_a;/* '<S17>/Embedded MATLAB Function' */
+  rtB_EmbeddedMATLABFunction_SALT sf_EmbeddedMATLABFunction_e;/* '<S16>/Embedded MATLAB Function' */
+  rtB_MATLABFunction1_SALTStabili sf_MATLABFunction2_j;/* '<S5>/MATLAB Function2' */
+  rtB_MATLABFunction1_SALTStabili sf_MATLABFunction1_i;/* '<S5>/MATLAB Function1' */
+  rtB_MATLABFunction_SALTStabiliz sf_MATLABFunction_c;/* '<S5>/MATLAB Function' */
   rtB_DutyCycles_SALTStabilizatio sf_DutyCycles1;/* '<Root>/Duty Cycles1' */
   rtB_DutyCycles_SALTStabilizatio sf_DutyCycles;/* '<Root>/Duty Cycles' */
 } BlockIO_SALTStabilizationInnerO;
 
 /* Block states (auto storage) for system '<Root>' */
 typedef struct {
-  real_T DiscreteTimeIntegrator1_DSTATE;/* '<S15>/Discrete-Time Integrator1' */
-  real_T DiscreteTimeIntegrator1_DSTAT_f;/* '<S14>/Discrete-Time Integrator1' */
-  real_T DiscreteTimeIntegrator1_DSTAT_j;/* '<S22>/Discrete-Time Integrator1' */
-  real_T DiscreteTimeIntegrator1_DSTAT_p;/* '<S21>/Discrete-Time Integrator1' */
-  real_T Memory1_PreviousInput;        /* '<S15>/Memory1' */
-  real_T Memory1_PreviousInput_i;      /* '<S14>/Memory1' */
-  real_T Memory1_PreviousInput_a;      /* '<S22>/Memory1' */
-  real_T Memory1_PreviousInput_g;      /* '<S21>/Memory1' */
-  real32_T DiscreteTimeIntegrator_DSTATE;/* '<S9>/Discrete-Time Integrator' */
-  real32_T DiscreteTimeIntegrator_DSTATE_c;/* '<S10>/Discrete-Time Integrator' */
-  real32_T DiscreteTimeIntegrator_DSTATE_f;/* '<S16>/Discrete-Time Integrator' */
-  real32_T DiscreteTimeIntegrator_DSTAT_ft;/* '<S17>/Discrete-Time Integrator' */
+  real_T DiscreteTimeIntegrator1_DSTATE;/* '<S12>/Discrete-Time Integrator1' */
+  real_T DiscreteTimeIntegrator1_DSTAT_o;/* '<S11>/Discrete-Time Integrator1' */
+  real_T Memory1_PreviousInput;        /* '<S12>/Memory1' */
+  real_T Memory1_PreviousInput_g;      /* '<S11>/Memory1' */
+  real32_T DiscreteTimeIntegrator_DSTATE;/* '<S6>/Discrete-Time Integrator' */
+  real32_T DiscreteTimeIntegrator_DSTATE_f;/* '<S5>/Discrete-Time Integrator' */
   real32_T T3;                         /* '<Root>/Data Store Memory1' */
   real32_T Sector;                     /* '<Root>/Data Store Memory10' */
   real32_T T6;                         /* '<Root>/Data Store Memory2' */
@@ -91,176 +103,143 @@ typedef struct {
   real32_T T5;                         /* '<Root>/Data Store Memory5' */
   real32_T T1;                         /* '<Root>/Data Store Memory7' */
   real32_T T2;                         /* '<Root>/Data Store Memory8' */
-  uint8_T DiscreteTimeIntegrator_SYSTEM_E;/* '<S9>/Discrete-Time Integrator' */
-  uint8_T DiscreteTimeIntegrator_SYSTEM_j;/* '<S10>/Discrete-Time Integrator' */
-  uint8_T DiscreteTimeIntegrator1_SYSTEM_;/* '<S15>/Discrete-Time Integrator1' */
-  uint8_T DiscreteTimeIntegrator1_SYSTE_e;/* '<S14>/Discrete-Time Integrator1' */
-  uint8_T DiscreteTimeIntegrator_SYSTEM_g;/* '<S16>/Discrete-Time Integrator' */
-  uint8_T DiscreteTimeIntegrator_SYSTEM_n;/* '<S17>/Discrete-Time Integrator' */
-  uint8_T DiscreteTimeIntegrator1_SYSTE_c;/* '<S22>/Discrete-Time Integrator1' */
-  uint8_T DiscreteTimeIntegrator1_SYSTE_k;/* '<S21>/Discrete-Time Integrator1' */
+  uint8_T DiscreteTimeIntegrator_SYSTEM_E;/* '<S6>/Discrete-Time Integrator' */
+  uint8_T DiscreteTimeIntegrator1_SYSTEM_;/* '<S12>/Discrete-Time Integrator1' */
+  uint8_T DiscreteTimeIntegrator_SYSTEM_c;/* '<S5>/Discrete-Time Integrator' */
+  uint8_T DiscreteTimeIntegrator1_SYSTE_o;/* '<S11>/Discrete-Time Integrator1' */
+  rtDW_EmbeddedMATLABFunction_SAL sf_EmbeddedMATLABFunction_k;/* '<S24>/Embedded MATLAB Function' */
+  rtDW_EmbeddedMATLABFunction_SAL sf_EmbeddedMATLABFunction;/* '<S23>/Embedded MATLAB Function' */
+  rtDW_EmbeddedMATLABFunction_SAL sf_EmbeddedMATLABFunction_a;/* '<S17>/Embedded MATLAB Function' */
+  rtDW_EmbeddedMATLABFunction_SAL sf_EmbeddedMATLABFunction_e;/* '<S16>/Embedded MATLAB Function' */
 } D_Work_SALTStabilizationInnerOu;
 
 /* Parameters (auto storage) */
 struct Parameters_SALTStabilizationInn_ {
   real_T Constant5_Value;              /* Expression: 0
-                                        * Referenced by: '<S14>/Constant5'
+                                        * Referenced by: '<S11>/Constant5'
                                         */
-  real_T Constant5_Value_g;            /* Expression: 0
-                                        * Referenced by: '<S15>/Constant5'
+  real_T Constant5_Value_j;            /* Expression: 0
+                                        * Referenced by: '<S12>/Constant5'
                                         */
-  real_T Constant5_Value_a;            /* Expression: 0
-                                        * Referenced by: '<S21>/Constant5'
+  real_T Constant_Value;               /* Expression: T
+                                        * Referenced by: '<S23>/Constant'
                                         */
-  real_T Constant5_Value_n;            /* Expression: 0
-                                        * Referenced by: '<S22>/Constant5'
+  real_T Constant1_Value;              /* Expression: f
+                                        * Referenced by: '<S23>/Constant1'
                                         */
-  real_T Kp1_Value;                    /* Expression: 1
-                                        * Referenced by: '<S10>/Kp 1'
+  real_T Constant_Value_p;             /* Expression: T
+                                        * Referenced by: '<S24>/Constant'
                                         */
-  real_T Ki1_Value;                    /* Expression: 0
-                                        * Referenced by: '<S10>/Ki 1'
+  real_T Constant1_Value_p;            /* Expression: f
+                                        * Referenced by: '<S24>/Constant1'
+                                        */
+  real_T Kp2_Value;                    /* Expression: 2
+                                        * Referenced by: '<S2>/Kp 2'
+                                        */
+  real_T Ki2_Value;                    /* Expression: .5
+                                        * Referenced by: '<S2>/Ki 2'
                                         */
   real_T Memory1_X0;                   /* Expression: 0
-                                        * Referenced by: '<S15>/Memory1'
+                                        * Referenced by: '<S12>/Memory1'
                                         */
-  real_T Kd1_Value;                    /* Expression: .1
-                                        * Referenced by: '<S10>/Kd 1'
+  real_T Kp1_Value;                    /* Expression: 1
+                                        * Referenced by: '<S2>/Kp 1'
                                         */
   real_T SaturationLimit1_Value;       /* Expression: 100 * (pi/180)
-                                        * Referenced by: '<S15>/SaturationLimit1'
+                                        * Referenced by: '<S12>/SaturationLimit1'
                                         */
   real_T DiscreteTimeIntegrator1_gainval;/* Computed Parameter: DiscreteTimeIntegrator1_gainval
-                                          * Referenced by: '<S15>/Discrete-Time Integrator1'
+                                          * Referenced by: '<S12>/Discrete-Time Integrator1'
                                           */
   real_T DiscreteTimeIntegrator1_IC;   /* Expression: 0
-                                        * Referenced by: '<S15>/Discrete-Time Integrator1'
+                                        * Referenced by: '<S12>/Discrete-Time Integrator1'
                                         */
-  real_T Saturation1_UpperSat;         /* Expression: pi
-                                        * Referenced by: '<S15>/Saturation1'
+  real_T Saturation1_UpperSat;         /* Expression: 4*pi
+                                        * Referenced by: '<S12>/Saturation1'
                                         */
-  real_T Saturation1_LowerSat;         /* Expression: -pi
-                                        * Referenced by: '<S15>/Saturation1'
+  real_T Saturation1_LowerSat;         /* Expression: -4*pi
+                                        * Referenced by: '<S12>/Saturation1'
                                         */
-  real_T Kp2_Value;                    /* Expression: 1
-                                        * Referenced by: '<S10>/Kp 2'
+  real_T Gain1_Gain;                   /* Expression: -1
+                                        * Referenced by: '<Root>/Gain1'
                                         */
-  real_T Gain_Gain;                    /* Expression: T_step
-                                        * Referenced by: '<S14>/Gain'
+  real_T Constant_Value_f;             /* Expression: T
+                                        * Referenced by: '<S16>/Constant'
                                         */
-  real_T Ki2_Value;                    /* Expression: 0
-                                        * Referenced by: '<S10>/Ki 2'
+  real_T Constant1_Value_f;            /* Expression: f
+                                        * Referenced by: '<S16>/Constant1'
                                         */
-  real_T Memory1_X0_j;                 /* Expression: 0
-                                        * Referenced by: '<S14>/Memory1'
+  real_T Constant_Value_m;             /* Expression: T
+                                        * Referenced by: '<S17>/Constant'
                                         */
-  real_T SaturationLimit1_Value_l;     /* Expression: 100 * (pi/180)
-                                        * Referenced by: '<S14>/SaturationLimit1'
+  real_T Constant1_Value_k;            /* Expression: f
+                                        * Referenced by: '<S17>/Constant1'
                                         */
-  real_T DiscreteTimeIntegrator1_gainv_l;/* Computed Parameter: DiscreteTimeIntegrator1_gainv_l
-                                          * Referenced by: '<S14>/Discrete-Time Integrator1'
-                                          */
-  real_T DiscreteTimeIntegrator1_IC_m; /* Expression: 0
-                                        * Referenced by: '<S14>/Discrete-Time Integrator1'
+  real_T Kp2_Value_f;                  /* Expression: 2
+                                        * Referenced by: '<S1>/Kp 2'
                                         */
-  real_T Saturation1_UpperSat_i;       /* Expression: pi
-                                        * Referenced by: '<S14>/Saturation1'
+  real_T Ki2_Value_b;                  /* Expression: .5
+                                        * Referenced by: '<S1>/Ki 2'
                                         */
-  real_T Saturation1_LowerSat_b;       /* Expression: -pi
-                                        * Referenced by: '<S14>/Saturation1'
+  real_T Memory1_X0_k;                 /* Expression: 0
+                                        * Referenced by: '<S11>/Memory1'
                                         */
-  real_T Kp1_Value_p;                  /* Expression: 1
-                                        * Referenced by: '<S17>/Kp 1'
-                                        */
-  real_T Ki1_Value_b;                  /* Expression: 0
-                                        * Referenced by: '<S17>/Ki 1'
-                                        */
-  real_T Memory1_X0_c;                 /* Expression: 0
-                                        * Referenced by: '<S22>/Memory1'
-                                        */
-  real_T Kd1_Value_n;                  /* Expression: .1
-                                        * Referenced by: '<S17>/Kd 1'
-                                        */
-  real_T SaturationLimit1_Value_d;     /* Expression: 100 * (pi/180)
-                                        * Referenced by: '<S22>/SaturationLimit1'
-                                        */
-  real_T DiscreteTimeIntegrator1_gainv_d;/* Computed Parameter: DiscreteTimeIntegrator1_gainv_d
-                                          * Referenced by: '<S22>/Discrete-Time Integrator1'
-                                          */
-  real_T DiscreteTimeIntegrator1_IC_k; /* Expression: 0
-                                        * Referenced by: '<S22>/Discrete-Time Integrator1'
-                                        */
-  real_T Saturation1_UpperSat_ie;      /* Expression: pi
-                                        * Referenced by: '<S22>/Saturation1'
-                                        */
-  real_T Saturation1_LowerSat_m;       /* Expression: -pi
-                                        * Referenced by: '<S22>/Saturation1'
-                                        */
-  real_T Kp2_Value_b;                  /* Expression: 1
-                                        * Referenced by: '<S17>/Kp 2'
-                                        */
-  real_T Gain_Gain_j;                  /* Expression: T_step
-                                        * Referenced by: '<S21>/Gain'
-                                        */
-  real_T Ki2_Value_d;                  /* Expression: 0
-                                        * Referenced by: '<S17>/Ki 2'
-                                        */
-  real_T Memory1_X0_f;                 /* Expression: 0
-                                        * Referenced by: '<S21>/Memory1'
+  real_T Kp1_Value_e;                  /* Expression: 1
+                                        * Referenced by: '<S1>/Kp 1'
                                         */
   real_T SaturationLimit1_Value_o;     /* Expression: 100 * (pi/180)
-                                        * Referenced by: '<S21>/SaturationLimit1'
+                                        * Referenced by: '<S11>/SaturationLimit1'
                                         */
-  real_T DiscreteTimeIntegrator1_gainv_b;/* Computed Parameter: DiscreteTimeIntegrator1_gainv_b
-                                          * Referenced by: '<S21>/Discrete-Time Integrator1'
+  real_T DiscreteTimeIntegrator1_gainv_g;/* Computed Parameter: DiscreteTimeIntegrator1_gainv_g
+                                          * Referenced by: '<S11>/Discrete-Time Integrator1'
                                           */
-  real_T DiscreteTimeIntegrator1_IC_i; /* Expression: 0
-                                        * Referenced by: '<S21>/Discrete-Time Integrator1'
+  real_T DiscreteTimeIntegrator1_IC_g; /* Expression: 0
+                                        * Referenced by: '<S11>/Discrete-Time Integrator1'
                                         */
-  real_T Saturation1_UpperSat_h;       /* Expression: pi
-                                        * Referenced by: '<S21>/Saturation1'
+  real_T Saturation1_UpperSat_j;       /* Expression: 4*pi
+                                        * Referenced by: '<S11>/Saturation1'
                                         */
-  real_T Saturation1_LowerSat_k;       /* Expression: -pi
-                                        * Referenced by: '<S21>/Saturation1'
+  real_T Saturation1_LowerSat_c;       /* Expression: -4*pi
+                                        * Referenced by: '<S11>/Saturation1'
+                                        */
+  real_T Gain4_Gain;                   /* Expression: -1
+                                        * Referenced by: '<Root>/Gain4'
+                                        */
+  real32_T Gain1_Gain_b;               /* Computed Parameter: Gain1_Gain_b
+                                        * Referenced by: '<S6>/Gain1'
                                         */
   real32_T DiscreteTimeIntegrator_gainval;/* Computed Parameter: DiscreteTimeIntegrator_gainval
-                                           * Referenced by: '<S9>/Discrete-Time Integrator'
+                                           * Referenced by: '<S6>/Discrete-Time Integrator'
                                            */
   real32_T DiscreteTimeIntegrator_IC;  /* Computed Parameter: DiscreteTimeIntegrator_IC
-                                        * Referenced by: '<S9>/Discrete-Time Integrator'
+                                        * Referenced by: '<S6>/Discrete-Time Integrator'
                                         */
-  real32_T DiscreteTimeIntegrator_gainva_j;/* Computed Parameter: DiscreteTimeIntegrator_gainva_j
-                                            * Referenced by: '<S10>/Discrete-Time Integrator'
-                                            */
-  real32_T DiscreteTimeIntegrator_IC_a;/* Computed Parameter: DiscreteTimeIntegrator_IC_a
-                                        * Referenced by: '<S10>/Discrete-Time Integrator'
+  real32_T Gain4_Gain_b;               /* Computed Parameter: Gain4_Gain_b
+                                        * Referenced by: '<S6>/Gain4'
                                         */
-  real32_T Gain_Gain_o;                /* Computed Parameter: Gain_Gain_o
-                                        * Referenced by: '<S15>/Gain'
+  real32_T Gain_Gain;                  /* Computed Parameter: Gain_Gain
+                                        * Referenced by: '<S12>/Gain'
                                         */
   real32_T Gain_Gain_a[6];             /* Computed Parameter: Gain_Gain_a
-                                        * Referenced by: '<S6>/Gain'
+                                        * Referenced by: '<S8>/Gain'
                                         */
-  real32_T Gain4_Gain;                 /* Computed Parameter: Gain4_Gain
-                                        * Referenced by: '<S4>/Gain4'
+  real32_T Gain1_Gain_k;               /* Computed Parameter: Gain1_Gain_k
+                                        * Referenced by: '<S5>/Gain1'
                                         */
-  real32_T DiscreteTimeIntegrator_gainva_p;/* Computed Parameter: DiscreteTimeIntegrator_gainva_p
-                                            * Referenced by: '<S16>/Discrete-Time Integrator'
+  real32_T DiscreteTimeIntegrator_gainva_e;/* Computed Parameter: DiscreteTimeIntegrator_gainva_e
+                                            * Referenced by: '<S5>/Discrete-Time Integrator'
                                             */
-  real32_T DiscreteTimeIntegrator_IC_f;/* Computed Parameter: DiscreteTimeIntegrator_IC_f
-                                        * Referenced by: '<S16>/Discrete-Time Integrator'
+  real32_T DiscreteTimeIntegrator_IC_a;/* Computed Parameter: DiscreteTimeIntegrator_IC_a
+                                        * Referenced by: '<S5>/Discrete-Time Integrator'
                                         */
-  real32_T DiscreteTimeIntegrator_gainva_c;/* Computed Parameter: DiscreteTimeIntegrator_gainva_c
-                                            * Referenced by: '<S17>/Discrete-Time Integrator'
-                                            */
-  real32_T DiscreteTimeIntegrator_IC_n;/* Computed Parameter: DiscreteTimeIntegrator_IC_n
-                                        * Referenced by: '<S17>/Discrete-Time Integrator'
+  real32_T Gain4_Gain_j;               /* Computed Parameter: Gain4_Gain_j
+                                        * Referenced by: '<S5>/Gain4'
                                         */
-  real32_T Gain_Gain_e;                /* Computed Parameter: Gain_Gain_e
-                                        * Referenced by: '<S22>/Gain'
+  real32_T Gain_Gain_c;                /* Computed Parameter: Gain_Gain_c
+                                        * Referenced by: '<S11>/Gain'
                                         */
-  real32_T Gain_Gain_c[6];             /* Computed Parameter: Gain_Gain_c
-                                        * Referenced by: '<S5>/Gain'
+  real32_T Gain_Gain_cl[6];            /* Computed Parameter: Gain_Gain_cl
+                                        * Referenced by: '<S7>/Gain'
                                         */
   real32_T DataStoreMemory_InitialValue;/* Computed Parameter: DataStoreMemory_InitialValue
                                          * Referenced by: '<Root>/Data Store Memory'
@@ -383,30 +362,34 @@ extern struct RT_MODEL_SALTStabilizationInner *const
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'SALTStabilizationInnerOuterLoop'
- * '<S1>'   : 'SALTStabilizationInnerOuterLoop/Duty Cycles'
- * '<S2>'   : 'SALTStabilizationInnerOuterLoop/Duty Cycles1'
- * '<S3>'   : 'SALTStabilizationInnerOuterLoop/X Axis Inner Outer Loop'
- * '<S4>'   : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop'
- * '<S5>'   : 'SALTStabilizationInnerOuterLoop/alphabeta-to-abc'
- * '<S6>'   : 'SALTStabilizationInnerOuterLoop/alphabeta-to-abc1'
- * '<S7>'   : 'SALTStabilizationInnerOuterLoop/dq-to-alphabeta'
- * '<S8>'   : 'SALTStabilizationInnerOuterLoop/dq-to-alphabeta1'
- * '<S9>'   : 'SALTStabilizationInnerOuterLoop/X Axis Inner Outer Loop/Gyro Bias Calculation1'
- * '<S10>'  : 'SALTStabilizationInnerOuterLoop/X Axis Inner Outer Loop/Inner//outer loop'
- * '<S11>'  : 'SALTStabilizationInnerOuterLoop/X Axis Inner Outer Loop/MATLAB Function'
- * '<S12>'  : 'SALTStabilizationInnerOuterLoop/X Axis Inner Outer Loop/MATLAB Function1'
- * '<S13>'  : 'SALTStabilizationInnerOuterLoop/X Axis Inner Outer Loop/MATLAB Function2'
- * '<S14>'  : 'SALTStabilizationInnerOuterLoop/X Axis Inner Outer Loop/Inner//outer loop/PID with External D and anti-windup4'
- * '<S15>'  : 'SALTStabilizationInnerOuterLoop/X Axis Inner Outer Loop/Inner//outer loop/PID with External D and anti-windup5'
- * '<S16>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop/Gyro Bias Calculation1'
- * '<S17>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop/Inner//outer loop'
- * '<S18>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop/MATLAB Function'
- * '<S19>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop/MATLAB Function1'
- * '<S20>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop/MATLAB Function2'
- * '<S21>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop/Inner//outer loop/PID with External D and anti-windup4'
- * '<S22>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop/Inner//outer loop/PID with External D and anti-windup5'
- * '<S23>'  : 'SALTStabilizationInnerOuterLoop/dq-to-alphabeta/vector mixer'
- * '<S24>'  : 'SALTStabilizationInnerOuterLoop/dq-to-alphabeta1/vector mixer'
+ * '<S1>'   : 'SALTStabilizationInnerOuterLoop/Controller'
+ * '<S2>'   : 'SALTStabilizationInnerOuterLoop/Controller1'
+ * '<S3>'   : 'SALTStabilizationInnerOuterLoop/Duty Cycles'
+ * '<S4>'   : 'SALTStabilizationInnerOuterLoop/Duty Cycles1'
+ * '<S5>'   : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop1'
+ * '<S6>'   : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop2'
+ * '<S7>'   : 'SALTStabilizationInnerOuterLoop/alphabeta-to-abc'
+ * '<S8>'   : 'SALTStabilizationInnerOuterLoop/alphabeta-to-abc1'
+ * '<S9>'   : 'SALTStabilizationInnerOuterLoop/dq-to-alphabeta'
+ * '<S10>'  : 'SALTStabilizationInnerOuterLoop/dq-to-alphabeta1'
+ * '<S11>'  : 'SALTStabilizationInnerOuterLoop/Controller/PID with External D and anti-windup4'
+ * '<S12>'  : 'SALTStabilizationInnerOuterLoop/Controller1/PID with External D and anti-windup4'
+ * '<S13>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop1/MATLAB Function'
+ * '<S14>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop1/MATLAB Function1'
+ * '<S15>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop1/MATLAB Function2'
+ * '<S16>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop1/Tustin Lowpass, Auto Initial Condition'
+ * '<S17>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop1/Tustin Lowpass, Auto Initial Condition1'
+ * '<S18>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop1/Tustin Lowpass, Auto Initial Condition/Embedded MATLAB Function'
+ * '<S19>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop1/Tustin Lowpass, Auto Initial Condition1/Embedded MATLAB Function'
+ * '<S20>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop2/MATLAB Function'
+ * '<S21>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop2/MATLAB Function1'
+ * '<S22>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop2/MATLAB Function2'
+ * '<S23>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop2/Tustin Lowpass, Auto Initial Condition'
+ * '<S24>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop2/Tustin Lowpass, Auto Initial Condition1'
+ * '<S25>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop2/Tustin Lowpass, Auto Initial Condition/Embedded MATLAB Function'
+ * '<S26>'  : 'SALTStabilizationInnerOuterLoop/Y Axis Inner Outer Loop2/Tustin Lowpass, Auto Initial Condition1/Embedded MATLAB Function'
+ * '<S27>'  : 'SALTStabilizationInnerOuterLoop/dq-to-alphabeta/vector mixer'
+ * '<S28>'  : 'SALTStabilizationInnerOuterLoop/dq-to-alphabeta1/vector mixer'
  */
 #endif                                 /* RTW_HEADER_SALTStabilizationInnerOuterLoop_h_ */
 

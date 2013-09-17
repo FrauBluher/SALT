@@ -20,11 +20,19 @@ typedef struct {
 
 typedef struct {
   SimStruct *S;
+  real_T c4_a;
+  real_T c4_b;
   int32_T c4_sfEvent;
+  real32_T c4_u_km1;
+  real32_T c4_y_km1;
   uint32_T chartNumber;
   uint32_T instanceNumber;
+  boolean_T c4_a_not_empty;
+  boolean_T c4_b_not_empty;
   boolean_T c4_doneDoubleBufferReInit;
   boolean_T c4_isStable;
+  boolean_T c4_u_km1_not_empty;
+  boolean_T c4_y_km1_not_empty;
   uint8_T c4_is_active_c4_SALTStabilizationInnerOuterLoop;
   ChartInfoStruct chartInfo;
 } SFc4_SALTStabilizationInnerOuterLoopInstanceStruct;

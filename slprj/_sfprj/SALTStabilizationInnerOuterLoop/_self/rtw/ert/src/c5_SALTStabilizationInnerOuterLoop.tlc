@@ -7,11 +7,36 @@
 %endfunction
 %function ChartDataMap(block, system) void
   %createrecord ChartDataElements {\
-    NumChartData   0 \
+    NumChartData   5 \
     ChartDataDefaults {\
       RecordType   "ChartData"\
       Dimensions   []\
       IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "a"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "a_not_empty"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "b"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "y_km1"\
+      SFName       ""\
+      Path         ""\
+    }\
+    ChartData {\
+      Name         "u_km1"\
+      SFName       ""\
+      Path         ""\
     }\
   }
   %return ChartDataElements

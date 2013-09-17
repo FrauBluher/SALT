@@ -4,7 +4,9 @@
 #include "c1_SALTStabilizationInnerOuterLoopSIM.h"
 #include "c2_SALTStabilizationInnerOuterLoopSIM.h"
 #include "c3_SALTStabilizationInnerOuterLoopSIM.h"
+#include "c4_SALTStabilizationInnerOuterLoopSIM.h"
 #include "c7_SALTStabilizationInnerOuterLoopSIM.h"
+#include "c33_SALTStabilizationInnerOuterLoopSIM.h"
 
 /* Type Definitions */
 
@@ -50,9 +52,21 @@ unsigned int sf_SALTStabilizationInnerOuterLoopSIM_method_dispatcher(SimStruct
     return 1;
   }
 
+  if (chartFileNumber==4) {
+    c4_SALTStabilizationInnerOuterLoopSIM_method_dispatcher(simstructPtr, method,
+      data);
+    return 1;
+  }
+
   if (chartFileNumber==7) {
     c7_SALTStabilizationInnerOuterLoopSIM_method_dispatcher(simstructPtr, method,
       data);
+    return 1;
+  }
+
+  if (chartFileNumber==33) {
+    c33_SALTStabilizationInnerOuterLoopSIM_method_dispatcher(simstructPtr,
+      method, data);
     return 1;
   }
 
@@ -89,10 +103,10 @@ unsigned int sf_SALTStabilizationInnerOuterLoopSIM_process_check_sum_call( int
       ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(0U);
       ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(0U);
     } else if (!strcmp(commandName,"makefile")) {
-      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(21276539U);
-      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(22737277U);
-      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(4148771203U);
-      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(476630036U);
+      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1287913792U);
+      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2049489885U);
+      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1809225413U);
+      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(563403199U);
     } else if (nrhs==3 && !strcmp(commandName,"chart")) {
       unsigned int chartFileNumber;
       chartFileNumber = (unsigned int)mxGetScalar(prhs[2]);
@@ -121,11 +135,27 @@ unsigned int sf_SALTStabilizationInnerOuterLoopSIM_process_check_sum_call( int
           break;
         }
 
+       case 4:
+        {
+          extern void sf_c4_SALTStabilizationInnerOuterLoopSIM_get_check_sum
+            (mxArray *plhs[]);
+          sf_c4_SALTStabilizationInnerOuterLoopSIM_get_check_sum(plhs);
+          break;
+        }
+
        case 7:
         {
           extern void sf_c7_SALTStabilizationInnerOuterLoopSIM_get_check_sum
             (mxArray *plhs[]);
           sf_c7_SALTStabilizationInnerOuterLoopSIM_get_check_sum(plhs);
+          break;
+        }
+
+       case 33:
+        {
+          extern void sf_c33_SALTStabilizationInnerOuterLoopSIM_get_check_sum
+            (mxArray *plhs[]);
+          sf_c33_SALTStabilizationInnerOuterLoopSIM_get_check_sum(plhs);
           break;
         }
 
@@ -144,10 +174,10 @@ unsigned int sf_SALTStabilizationInnerOuterLoopSIM_process_check_sum_call( int
       return 0;
     }
   } else {
-    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1145994289U);
-    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(1258036524U);
-    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1479219982U);
-    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(507062637U);
+    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2427918242U);
+    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2783066706U);
+    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2313029955U);
+    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2601838020U);
   }
 
   return 1;
@@ -228,6 +258,21 @@ unsigned int sf_SALTStabilizationInnerOuterLoopSIM_autoinheritance_info( int
         break;
       }
 
+     case 4:
+      {
+        if (strcmp(aiChksum, "xPSKulkZc4YItyxVKAHmVE") == 0) {
+          extern mxArray
+            *sf_c4_SALTStabilizationInnerOuterLoopSIM_get_autoinheritance_info
+            (void);
+          plhs[0] =
+            sf_c4_SALTStabilizationInnerOuterLoopSIM_get_autoinheritance_info();
+          break;
+        }
+
+        plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
+        break;
+      }
+
      case 7:
       {
         if (strcmp(aiChksum, "kZK4X7qjA03J1D18S84apE") == 0) {
@@ -236,6 +281,21 @@ unsigned int sf_SALTStabilizationInnerOuterLoopSIM_autoinheritance_info( int
             (void);
           plhs[0] =
             sf_c7_SALTStabilizationInnerOuterLoopSIM_get_autoinheritance_info();
+          break;
+        }
+
+        plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
+        break;
+      }
+
+     case 33:
+      {
+        if (strcmp(aiChksum, "xPSKulkZc4YItyxVKAHmVE") == 0) {
+          extern mxArray
+            *sf_c33_SALTStabilizationInnerOuterLoopSIM_get_autoinheritance_info
+            (void);
+          plhs[0] =
+            sf_c33_SALTStabilizationInnerOuterLoopSIM_get_autoinheritance_info();
           break;
         }
 
@@ -318,6 +378,19 @@ unsigned int
         break;
       }
 
+     case 4:
+      {
+        extern const mxArray
+          *sf_c4_SALTStabilizationInnerOuterLoopSIM_get_eml_resolved_functions_info
+          (void);
+        mxArray *persistentMxArray = (mxArray *)
+          sf_c4_SALTStabilizationInnerOuterLoopSIM_get_eml_resolved_functions_info
+          ();
+        plhs[0] = mxDuplicateArray(persistentMxArray);
+        mxDestroyArray(persistentMxArray);
+        break;
+      }
+
      case 7:
       {
         extern const mxArray
@@ -325,6 +398,19 @@ unsigned int
           (void);
         mxArray *persistentMxArray = (mxArray *)
           sf_c7_SALTStabilizationInnerOuterLoopSIM_get_eml_resolved_functions_info
+          ();
+        plhs[0] = mxDuplicateArray(persistentMxArray);
+        mxDestroyArray(persistentMxArray);
+        break;
+      }
+
+     case 33:
+      {
+        extern const mxArray
+          *sf_c33_SALTStabilizationInnerOuterLoopSIM_get_eml_resolved_functions_info
+          (void);
+        mxArray *persistentMxArray = (mxArray *)
+          sf_c33_SALTStabilizationInnerOuterLoopSIM_get_eml_resolved_functions_info
           ();
         plhs[0] = mxDuplicateArray(persistentMxArray);
         mxDestroyArray(persistentMxArray);
@@ -349,7 +435,7 @@ unsigned int
 void SALTStabilizationInnerOuterLoopSIM_debug_initialize(void)
 {
   _SALTStabilizationInnerOuterLoopSIMMachineNumber_ =
-    sf_debug_initialize_machine("SALTStabilizationInnerOuterLoopSIM","sfun",0,4,
+    sf_debug_initialize_machine("SALTStabilizationInnerOuterLoopSIM","sfun",0,6,
     0,0,0);
   sf_debug_set_machine_event_thresholds
     (_SALTStabilizationInnerOuterLoopSIMMachineNumber_,0,0);

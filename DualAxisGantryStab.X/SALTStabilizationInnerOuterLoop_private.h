@@ -3,10 +3,10 @@
  *
  * Code generated for Simulink model 'SALTStabilizationInnerOuterLoop'.
  *
- * Model version                  : 1.10
+ * Model version                  : 1.16
  * Simulink Coder version         : 8.1 (R2011b) 08-Jul-2011
  * TLC version                    : 8.1 (Jul  9 2011)
- * C/C++ source code generated on : Thu Aug 15 17:30:24 2013
+ * C/C++ source code generated on : Fri Aug 16 18:44:18 2013
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Microchip->dsPIC
@@ -41,6 +41,11 @@ extern void SALTStabilizatio_MATLABFunction(real32_T rtu_u,
   rtB_MATLABFunction_SALTStabiliz *localB);
 extern void SALTStabilizati_MATLABFunction1(real32_T rtu_u,
   rtB_MATLABFunction1_SALTStabili *localB);
+extern void SAL_EmbeddedMATLABFunction_Init(rtDW_EmbeddedMATLABFunction_SAL
+  *localDW);
+extern void SALTStab_EmbeddedMATLABFunction(real32_T rtu_u, real_T rtu_T, real_T
+  rtu_f, rtB_EmbeddedMATLABFunction_SALT *localB,
+  rtDW_EmbeddedMATLABFunction_SAL *localDW);
 
 #endif                                 /* RTW_HEADER_SALTStabilizationInnerOuterLoop_private_h_ */
 

@@ -13,9 +13,13 @@ CHART_SRCS 	= \
      c3_SALTStabilizationInnerOuterLoop.c\
      c4_SALTStabilizationInnerOuterLoop.c\
      c5_SALTStabilizationInnerOuterLoop.c\
-     c6_SALTStabilizationInnerOuterLoop.c\
      c7_SALTStabilizationInnerOuterLoop.c\
-     c8_SALTStabilizationInnerOuterLoop.c
+     c8_SALTStabilizationInnerOuterLoop.c\
+     c9_SALTStabilizationInnerOuterLoop.c\
+     c10_SALTStabilizationInnerOuterLoop.c\
+     c11_SALTStabilizationInnerOuterLoop.c\
+     c12_SALTStabilizationInnerOuterLoop.c\
+     c33_SALTStabilizationInnerOuterLoop.c
 MACHINE_SRC	= SALTStabilizationInnerOuterLoop_sfun.c
 MACHINE_REG = SALTStabilizationInnerOuterLoop_sfun_registry.c
 MEX_WRAPPER =

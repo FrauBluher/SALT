@@ -6,9 +6,13 @@
 #include "c3_SALTStabilizationInnerOuterLoop.h"
 #include "c4_SALTStabilizationInnerOuterLoop.h"
 #include "c5_SALTStabilizationInnerOuterLoop.h"
-#include "c6_SALTStabilizationInnerOuterLoop.h"
 #include "c7_SALTStabilizationInnerOuterLoop.h"
 #include "c8_SALTStabilizationInnerOuterLoop.h"
+#include "c9_SALTStabilizationInnerOuterLoop.h"
+#include "c10_SALTStabilizationInnerOuterLoop.h"
+#include "c11_SALTStabilizationInnerOuterLoop.h"
+#include "c12_SALTStabilizationInnerOuterLoop.h"
+#include "c33_SALTStabilizationInnerOuterLoop.h"
 
 /* Type Definitions */
 
@@ -66,12 +70,6 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_method_dispatcher(SimStruct
     return 1;
   }
 
-  if (chartFileNumber==6) {
-    c6_SALTStabilizationInnerOuterLoop_method_dispatcher(simstructPtr, method,
-      data);
-    return 1;
-  }
-
   if (chartFileNumber==7) {
     c7_SALTStabilizationInnerOuterLoop_method_dispatcher(simstructPtr, method,
       data);
@@ -80,6 +78,36 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_method_dispatcher(SimStruct
 
   if (chartFileNumber==8) {
     c8_SALTStabilizationInnerOuterLoop_method_dispatcher(simstructPtr, method,
+      data);
+    return 1;
+  }
+
+  if (chartFileNumber==9) {
+    c9_SALTStabilizationInnerOuterLoop_method_dispatcher(simstructPtr, method,
+      data);
+    return 1;
+  }
+
+  if (chartFileNumber==10) {
+    c10_SALTStabilizationInnerOuterLoop_method_dispatcher(simstructPtr, method,
+      data);
+    return 1;
+  }
+
+  if (chartFileNumber==11) {
+    c11_SALTStabilizationInnerOuterLoop_method_dispatcher(simstructPtr, method,
+      data);
+    return 1;
+  }
+
+  if (chartFileNumber==12) {
+    c12_SALTStabilizationInnerOuterLoop_method_dispatcher(simstructPtr, method,
+      data);
+    return 1;
+  }
+
+  if (chartFileNumber==33) {
+    c33_SALTStabilizationInnerOuterLoop_method_dispatcher(simstructPtr, method,
       data);
     return 1;
   }
@@ -117,10 +145,10 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_process_check_sum_call( int nlhs
       ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(0U);
       ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(0U);
     } else if (!strcmp(commandName,"makefile")) {
-      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1070416367U);
-      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(4204320037U);
-      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1042401457U);
-      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1605934269U);
+      ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(448767413U);
+      ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3473931649U);
+      ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3316997116U);
+      ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3919156135U);
     } else if (nrhs==3 && !strcmp(commandName,"chart")) {
       unsigned int chartFileNumber;
       chartFileNumber = (unsigned int)mxGetScalar(prhs[2]);
@@ -165,14 +193,6 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_process_check_sum_call( int nlhs
           break;
         }
 
-       case 6:
-        {
-          extern void sf_c6_SALTStabilizationInnerOuterLoop_get_check_sum
-            (mxArray *plhs[]);
-          sf_c6_SALTStabilizationInnerOuterLoop_get_check_sum(plhs);
-          break;
-        }
-
        case 7:
         {
           extern void sf_c7_SALTStabilizationInnerOuterLoop_get_check_sum
@@ -186,6 +206,46 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_process_check_sum_call( int nlhs
           extern void sf_c8_SALTStabilizationInnerOuterLoop_get_check_sum
             (mxArray *plhs[]);
           sf_c8_SALTStabilizationInnerOuterLoop_get_check_sum(plhs);
+          break;
+        }
+
+       case 9:
+        {
+          extern void sf_c9_SALTStabilizationInnerOuterLoop_get_check_sum
+            (mxArray *plhs[]);
+          sf_c9_SALTStabilizationInnerOuterLoop_get_check_sum(plhs);
+          break;
+        }
+
+       case 10:
+        {
+          extern void sf_c10_SALTStabilizationInnerOuterLoop_get_check_sum
+            (mxArray *plhs[]);
+          sf_c10_SALTStabilizationInnerOuterLoop_get_check_sum(plhs);
+          break;
+        }
+
+       case 11:
+        {
+          extern void sf_c11_SALTStabilizationInnerOuterLoop_get_check_sum
+            (mxArray *plhs[]);
+          sf_c11_SALTStabilizationInnerOuterLoop_get_check_sum(plhs);
+          break;
+        }
+
+       case 12:
+        {
+          extern void sf_c12_SALTStabilizationInnerOuterLoop_get_check_sum
+            (mxArray *plhs[]);
+          sf_c12_SALTStabilizationInnerOuterLoop_get_check_sum(plhs);
+          break;
+        }
+
+       case 33:
+        {
+          extern void sf_c33_SALTStabilizationInnerOuterLoop_get_check_sum
+            (mxArray *plhs[]);
+          sf_c33_SALTStabilizationInnerOuterLoop_get_check_sum(plhs);
           break;
         }
 
@@ -204,10 +264,10 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_process_check_sum_call( int nlhs
       return 0;
     }
   } else {
-    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1703557474U);
-    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(1954838517U);
-    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(98495204U);
-    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1909340673U);
+    ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(198062696U);
+    ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2720385510U);
+    ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1841444216U);
+    ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1456639490U);
   }
 
   return 1;
@@ -245,7 +305,7 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_autoinheritance_info( int nlhs,
     switch (chartFileNumber) {
      case 1:
       {
-        if (strcmp(aiChksum, "Fiz0HabezT46yCsSuk4QTG") == 0) {
+        if (strcmp(aiChksum, "xG35iPbBEaGhACUEmUwYK") == 0) {
           extern mxArray
             *sf_c1_SALTStabilizationInnerOuterLoop_get_autoinheritance_info(void);
           plhs[0] =
@@ -259,7 +319,7 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_autoinheritance_info( int nlhs,
 
      case 2:
       {
-        if (strcmp(aiChksum, "xG35iPbBEaGhACUEmUwYK") == 0) {
+        if (strcmp(aiChksum, "Fiz0HabezT46yCsSuk4QTG") == 0) {
           extern mxArray
             *sf_c2_SALTStabilizationInnerOuterLoop_get_autoinheritance_info(void);
           plhs[0] =
@@ -287,7 +347,7 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_autoinheritance_info( int nlhs,
 
      case 4:
       {
-        if (strcmp(aiChksum, "xG35iPbBEaGhACUEmUwYK") == 0) {
+        if (strcmp(aiChksum, "xPSKulkZc4YItyxVKAHmVE") == 0) {
           extern mxArray
             *sf_c4_SALTStabilizationInnerOuterLoop_get_autoinheritance_info(void);
           plhs[0] =
@@ -301,25 +361,11 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_autoinheritance_info( int nlhs,
 
      case 5:
       {
-        if (strcmp(aiChksum, "Fiz0HabezT46yCsSuk4QTG") == 0) {
+        if (strcmp(aiChksum, "xPSKulkZc4YItyxVKAHmVE") == 0) {
           extern mxArray
             *sf_c5_SALTStabilizationInnerOuterLoop_get_autoinheritance_info(void);
           plhs[0] =
             sf_c5_SALTStabilizationInnerOuterLoop_get_autoinheritance_info();
-          break;
-        }
-
-        plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
-        break;
-      }
-
-     case 6:
-      {
-        if (strcmp(aiChksum, "Fiz0HabezT46yCsSuk4QTG") == 0) {
-          extern mxArray
-            *sf_c6_SALTStabilizationInnerOuterLoop_get_autoinheritance_info(void);
-          plhs[0] =
-            sf_c6_SALTStabilizationInnerOuterLoop_get_autoinheritance_info();
           break;
         }
 
@@ -348,6 +394,80 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_autoinheritance_info( int nlhs,
             *sf_c8_SALTStabilizationInnerOuterLoop_get_autoinheritance_info(void);
           plhs[0] =
             sf_c8_SALTStabilizationInnerOuterLoop_get_autoinheritance_info();
+          break;
+        }
+
+        plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
+        break;
+      }
+
+     case 9:
+      {
+        if (strcmp(aiChksum, "xG35iPbBEaGhACUEmUwYK") == 0) {
+          extern mxArray
+            *sf_c9_SALTStabilizationInnerOuterLoop_get_autoinheritance_info(void);
+          plhs[0] =
+            sf_c9_SALTStabilizationInnerOuterLoop_get_autoinheritance_info();
+          break;
+        }
+
+        plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
+        break;
+      }
+
+     case 10:
+      {
+        if (strcmp(aiChksum, "Fiz0HabezT46yCsSuk4QTG") == 0) {
+          extern mxArray
+            *sf_c10_SALTStabilizationInnerOuterLoop_get_autoinheritance_info
+            (void);
+          plhs[0] =
+            sf_c10_SALTStabilizationInnerOuterLoop_get_autoinheritance_info();
+          break;
+        }
+
+        plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
+        break;
+      }
+
+     case 11:
+      {
+        if (strcmp(aiChksum, "Fiz0HabezT46yCsSuk4QTG") == 0) {
+          extern mxArray
+            *sf_c11_SALTStabilizationInnerOuterLoop_get_autoinheritance_info
+            (void);
+          plhs[0] =
+            sf_c11_SALTStabilizationInnerOuterLoop_get_autoinheritance_info();
+          break;
+        }
+
+        plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
+        break;
+      }
+
+     case 12:
+      {
+        if (strcmp(aiChksum, "xPSKulkZc4YItyxVKAHmVE") == 0) {
+          extern mxArray
+            *sf_c12_SALTStabilizationInnerOuterLoop_get_autoinheritance_info
+            (void);
+          plhs[0] =
+            sf_c12_SALTStabilizationInnerOuterLoop_get_autoinheritance_info();
+          break;
+        }
+
+        plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
+        break;
+      }
+
+     case 33:
+      {
+        if (strcmp(aiChksum, "xPSKulkZc4YItyxVKAHmVE") == 0) {
+          extern mxArray
+            *sf_c33_SALTStabilizationInnerOuterLoop_get_autoinheritance_info
+            (void);
+          plhs[0] =
+            sf_c33_SALTStabilizationInnerOuterLoop_get_autoinheritance_info();
           break;
         }
 
@@ -450,18 +570,6 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info(
         break;
       }
 
-     case 6:
-      {
-        extern const mxArray
-          *sf_c6_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info
-          (void);
-        mxArray *persistentMxArray = (mxArray *)
-          sf_c6_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info();
-        plhs[0] = mxDuplicateArray(persistentMxArray);
-        mxDestroyArray(persistentMxArray);
-        break;
-      }
-
      case 7:
       {
         extern const mxArray
@@ -486,6 +594,70 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info(
         break;
       }
 
+     case 9:
+      {
+        extern const mxArray
+          *sf_c9_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info
+          (void);
+        mxArray *persistentMxArray = (mxArray *)
+          sf_c9_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info();
+        plhs[0] = mxDuplicateArray(persistentMxArray);
+        mxDestroyArray(persistentMxArray);
+        break;
+      }
+
+     case 10:
+      {
+        extern const mxArray
+          *sf_c10_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info
+          (void);
+        mxArray *persistentMxArray = (mxArray *)
+          sf_c10_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info
+          ();
+        plhs[0] = mxDuplicateArray(persistentMxArray);
+        mxDestroyArray(persistentMxArray);
+        break;
+      }
+
+     case 11:
+      {
+        extern const mxArray
+          *sf_c11_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info
+          (void);
+        mxArray *persistentMxArray = (mxArray *)
+          sf_c11_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info
+          ();
+        plhs[0] = mxDuplicateArray(persistentMxArray);
+        mxDestroyArray(persistentMxArray);
+        break;
+      }
+
+     case 12:
+      {
+        extern const mxArray
+          *sf_c12_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info
+          (void);
+        mxArray *persistentMxArray = (mxArray *)
+          sf_c12_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info
+          ();
+        plhs[0] = mxDuplicateArray(persistentMxArray);
+        mxDestroyArray(persistentMxArray);
+        break;
+      }
+
+     case 33:
+      {
+        extern const mxArray
+          *sf_c33_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info
+          (void);
+        mxArray *persistentMxArray = (mxArray *)
+          sf_c33_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info
+          ();
+        plhs[0] = mxDuplicateArray(persistentMxArray);
+        mxDestroyArray(persistentMxArray);
+        break;
+      }
+
      default:
       plhs[0] = mxCreateDoubleMatrix(0,0,mxREAL);
     }
@@ -504,7 +676,7 @@ unsigned int sf_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info(
 void SALTStabilizationInnerOuterLoop_debug_initialize(void)
 {
   _SALTStabilizationInnerOuterLoopMachineNumber_ = sf_debug_initialize_machine(
-    "SALTStabilizationInnerOuterLoop","sfun",0,8,0,0,0);
+    "SALTStabilizationInnerOuterLoop","sfun",0,12,0,0,0);
   sf_debug_set_machine_event_thresholds
     (_SALTStabilizationInnerOuterLoopMachineNumber_,0,0);
   sf_debug_set_machine_data_thresholds

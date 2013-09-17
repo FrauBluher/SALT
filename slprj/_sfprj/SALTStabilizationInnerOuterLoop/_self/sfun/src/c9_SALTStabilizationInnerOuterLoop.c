@@ -41,26 +41,33 @@ static void initSimStructsc9_SALTStabilizationInnerOuterLoop
 static void init_script_number_translation(uint32_T c9_machineNumber, uint32_T
   c9_chartNumber);
 static const mxArray *c9_sf_marshallOut(void *chartInstanceVoid, void *c9_inData);
-static real_T c9_emlrt_marshallIn
+static real32_T c9_emlrt_marshallIn
   (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance, const
    mxArray *c9_y, const char_T *c9_identifier);
-static real_T c9_b_emlrt_marshallIn
+static real32_T c9_b_emlrt_marshallIn
   (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance, const
    mxArray *c9_u, const emlrtMsgIdentifier *c9_parentId);
 static void c9_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c9_mxArrayInData, const char_T *c9_varName, void *c9_outData);
 static const mxArray *c9_b_sf_marshallOut(void *chartInstanceVoid, void
   *c9_inData);
-static int32_T c9_c_emlrt_marshallIn
+static real_T c9_c_emlrt_marshallIn
   (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance, const
    mxArray *c9_u, const emlrtMsgIdentifier *c9_parentId);
 static void c9_b_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c9_mxArrayInData, const char_T *c9_varName, void *c9_outData);
-static uint8_T c9_d_emlrt_marshallIn
+static const mxArray *c9_c_sf_marshallOut(void *chartInstanceVoid, void
+  *c9_inData);
+static int32_T c9_d_emlrt_marshallIn
+  (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance, const
+   mxArray *c9_u, const emlrtMsgIdentifier *c9_parentId);
+static void c9_c_sf_marshallIn(void *chartInstanceVoid, const mxArray
+  *c9_mxArrayInData, const char_T *c9_varName, void *c9_outData);
+static uint8_T c9_e_emlrt_marshallIn
   (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance, const
    mxArray *c9_b_is_active_c9_SALTStabilizationInnerOuterLoop, const char_T
    *c9_identifier);
-static uint8_T c9_e_emlrt_marshallIn
+static uint8_T c9_f_emlrt_marshallIn
   (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance, const
    mxArray *c9_u, const emlrtMsgIdentifier *c9_parentId);
 static void init_dsm_address_info
@@ -102,14 +109,14 @@ static const mxArray *get_sim_state_c9_SALTStabilizationInnerOuterLoop
 {
   const mxArray *c9_st;
   const mxArray *c9_y = NULL;
-  real_T c9_hoistedGlobal;
-  real_T c9_u;
+  real32_T c9_hoistedGlobal;
+  real32_T c9_u;
   const mxArray *c9_b_y = NULL;
   uint8_T c9_b_hoistedGlobal;
   uint8_T c9_b_u;
   const mxArray *c9_c_y = NULL;
-  real_T *c9_d_y;
-  c9_d_y = (real_T *)ssGetOutputPortSignal(chartInstance->S, 1);
+  real32_T *c9_d_y;
+  c9_d_y = (real32_T *)ssGetOutputPortSignal(chartInstance->S, 1);
   c9_st = NULL;
   c9_st = NULL;
   c9_y = NULL;
@@ -117,7 +124,7 @@ static const mxArray *get_sim_state_c9_SALTStabilizationInnerOuterLoop
   c9_hoistedGlobal = *c9_d_y;
   c9_u = c9_hoistedGlobal;
   c9_b_y = NULL;
-  sf_mex_assign(&c9_b_y, sf_mex_create("y", &c9_u, 0, 0U, 0U, 0U, 0), FALSE);
+  sf_mex_assign(&c9_b_y, sf_mex_create("y", &c9_u, 1, 0U, 0U, 0U, 0), FALSE);
   sf_mex_setcell(c9_y, 0, c9_b_y);
   c9_b_hoistedGlobal =
     chartInstance->c9_is_active_c9_SALTStabilizationInnerOuterLoop;
@@ -134,14 +141,14 @@ static void set_sim_state_c9_SALTStabilizationInnerOuterLoop
    mxArray *c9_st)
 {
   const mxArray *c9_u;
-  real_T *c9_y;
-  c9_y = (real_T *)ssGetOutputPortSignal(chartInstance->S, 1);
+  real32_T *c9_y;
+  c9_y = (real32_T *)ssGetOutputPortSignal(chartInstance->S, 1);
   chartInstance->c9_doneDoubleBufferReInit = TRUE;
   c9_u = sf_mex_dup(c9_st);
   *c9_y = c9_emlrt_marshallIn(chartInstance, sf_mex_dup(sf_mex_getcell(c9_u, 0)),
     "y");
   chartInstance->c9_is_active_c9_SALTStabilizationInnerOuterLoop =
-    c9_d_emlrt_marshallIn(chartInstance, sf_mex_dup(sf_mex_getcell(c9_u, 1)),
+    c9_e_emlrt_marshallIn(chartInstance, sf_mex_dup(sf_mex_getcell(c9_u, 1)),
     "is_active_c9_SALTStabilizationInnerOuterLoop");
   sf_mex_destroy(&c9_u);
   c9_update_debugger_state_c9_SALTStabilizationInnerOuterLoop(chartInstance);
@@ -156,33 +163,37 @@ static void finalize_c9_SALTStabilizationInnerOuterLoop
 static void sf_c9_SALTStabilizationInnerOuterLoop
   (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance)
 {
-  real_T c9_hoistedGlobal;
-  real_T c9_u;
+  real32_T c9_hoistedGlobal;
+  real32_T c9_u;
   uint32_T c9_debug_family_var_map[4];
   real_T c9_nargin = 1.0;
   real_T c9_nargout = 1.0;
-  real_T c9_y;
-  real_T c9_A;
-  real_T c9_x;
-  real_T c9_b_x;
-  real_T *c9_b_u;
-  real_T *c9_b_y;
-  c9_b_y = (real_T *)ssGetOutputPortSignal(chartInstance->S, 1);
-  c9_b_u = (real_T *)ssGetInputPortSignal(chartInstance->S, 0);
+  real32_T c9_y;
+  real32_T c9_A;
+  real32_T c9_x;
+  real32_T c9_b_x;
+  real32_T c9_b_y;
+  real32_T c9_a;
+  real32_T c9_c_y;
+  real32_T c9_b_a;
+  real32_T *c9_b_u;
+  real32_T *c9_d_y;
+  c9_d_y = (real32_T *)ssGetOutputPortSignal(chartInstance->S, 1);
+  c9_b_u = (real32_T *)ssGetInputPortSignal(chartInstance->S, 0);
   _sfTime_ = (real_T)ssGetT(chartInstance->S);
-  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 8U, chartInstance->c9_sfEvent);
-  _SFD_DATA_RANGE_CHECK(*c9_b_u, 0U);
-  _SFD_DATA_RANGE_CHECK(*c9_b_y, 1U);
+  _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 7U, chartInstance->c9_sfEvent);
+  _SFD_DATA_RANGE_CHECK((real_T)*c9_b_u, 0U);
+  _SFD_DATA_RANGE_CHECK((real_T)*c9_d_y, 1U);
   chartInstance->c9_sfEvent = CALL_EVENT;
-  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 8U, chartInstance->c9_sfEvent);
+  _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 7U, chartInstance->c9_sfEvent);
   c9_hoistedGlobal = *c9_b_u;
   c9_u = c9_hoistedGlobal;
   sf_debug_symbol_scope_push_eml(0U, 4U, 4U, c9_debug_family_names,
     c9_debug_family_var_map);
-  sf_debug_symbol_scope_add_eml_importable(&c9_nargin, 0U, c9_sf_marshallOut,
-    c9_sf_marshallIn);
-  sf_debug_symbol_scope_add_eml_importable(&c9_nargout, 1U, c9_sf_marshallOut,
-    c9_sf_marshallIn);
+  sf_debug_symbol_scope_add_eml_importable(&c9_nargin, 0U, c9_b_sf_marshallOut,
+    c9_b_sf_marshallIn);
+  sf_debug_symbol_scope_add_eml_importable(&c9_nargout, 1U, c9_b_sf_marshallOut,
+    c9_b_sf_marshallIn);
   sf_debug_symbol_scope_add_eml(&c9_u, 2U, c9_sf_marshallOut);
   sf_debug_symbol_scope_add_eml_importable(&c9_y, 3U, c9_sf_marshallOut,
     c9_sf_marshallIn);
@@ -191,11 +202,15 @@ static void sf_c9_SALTStabilizationInnerOuterLoop
   c9_A = c9_u;
   c9_x = c9_A;
   c9_b_x = c9_x;
-  c9_y = c9_b_x / 32.8;
+  c9_b_y = c9_b_x / 131.0F;
+  c9_a = c9_b_y;
+  c9_c_y = c9_a * 0.0174532924F;
+  c9_b_a = c9_c_y;
+  c9_y = c9_b_a * 5.0F;
   _SFD_EML_CALL(0U, chartInstance->c9_sfEvent, -4);
   sf_debug_symbol_scope_pop();
-  *c9_b_y = c9_y;
-  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 8U, chartInstance->c9_sfEvent);
+  *c9_d_y = c9_y;
+  _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 7U, chartInstance->c9_sfEvent);
   sf_debug_check_for_state_inconsistency
     (_SALTStabilizationInnerOuterLoopMachineNumber_, chartInstance->chartNumber,
      chartInstance->instanceNumber);
@@ -214,6 +229,68 @@ static void init_script_number_translation(uint32_T c9_machineNumber, uint32_T
 static const mxArray *c9_sf_marshallOut(void *chartInstanceVoid, void *c9_inData)
 {
   const mxArray *c9_mxArrayOutData = NULL;
+  real32_T c9_u;
+  const mxArray *c9_y = NULL;
+  SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance;
+  chartInstance = (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *)
+    chartInstanceVoid;
+  c9_mxArrayOutData = NULL;
+  c9_u = *(real32_T *)c9_inData;
+  c9_y = NULL;
+  sf_mex_assign(&c9_y, sf_mex_create("y", &c9_u, 1, 0U, 0U, 0U, 0), FALSE);
+  sf_mex_assign(&c9_mxArrayOutData, c9_y, FALSE);
+  return c9_mxArrayOutData;
+}
+
+static real32_T c9_emlrt_marshallIn
+  (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance, const
+   mxArray *c9_y, const char_T *c9_identifier)
+{
+  real32_T c9_b_y;
+  emlrtMsgIdentifier c9_thisId;
+  c9_thisId.fIdentifier = c9_identifier;
+  c9_thisId.fParent = NULL;
+  c9_b_y = c9_b_emlrt_marshallIn(chartInstance, sf_mex_dup(c9_y), &c9_thisId);
+  sf_mex_destroy(&c9_y);
+  return c9_b_y;
+}
+
+static real32_T c9_b_emlrt_marshallIn
+  (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance, const
+   mxArray *c9_u, const emlrtMsgIdentifier *c9_parentId)
+{
+  real32_T c9_y;
+  real32_T c9_f0;
+  sf_mex_import(c9_parentId, sf_mex_dup(c9_u), &c9_f0, 1, 1, 0U, 0, 0U, 0);
+  c9_y = c9_f0;
+  sf_mex_destroy(&c9_u);
+  return c9_y;
+}
+
+static void c9_sf_marshallIn(void *chartInstanceVoid, const mxArray
+  *c9_mxArrayInData, const char_T *c9_varName, void *c9_outData)
+{
+  const mxArray *c9_y;
+  const char_T *c9_identifier;
+  emlrtMsgIdentifier c9_thisId;
+  real32_T c9_b_y;
+  SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance;
+  chartInstance = (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *)
+    chartInstanceVoid;
+  c9_y = sf_mex_dup(c9_mxArrayInData);
+  c9_identifier = c9_varName;
+  c9_thisId.fIdentifier = c9_identifier;
+  c9_thisId.fParent = NULL;
+  c9_b_y = c9_b_emlrt_marshallIn(chartInstance, sf_mex_dup(c9_y), &c9_thisId);
+  sf_mex_destroy(&c9_y);
+  *(real32_T *)c9_outData = c9_b_y;
+  sf_mex_destroy(&c9_mxArrayInData);
+}
+
+static const mxArray *c9_b_sf_marshallOut(void *chartInstanceVoid, void
+  *c9_inData)
+{
+  const mxArray *c9_mxArrayOutData = NULL;
   real_T c9_u;
   const mxArray *c9_y = NULL;
   SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance;
@@ -227,20 +304,7 @@ static const mxArray *c9_sf_marshallOut(void *chartInstanceVoid, void *c9_inData
   return c9_mxArrayOutData;
 }
 
-static real_T c9_emlrt_marshallIn
-  (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance, const
-   mxArray *c9_y, const char_T *c9_identifier)
-{
-  real_T c9_b_y;
-  emlrtMsgIdentifier c9_thisId;
-  c9_thisId.fIdentifier = c9_identifier;
-  c9_thisId.fParent = NULL;
-  c9_b_y = c9_b_emlrt_marshallIn(chartInstance, sf_mex_dup(c9_y), &c9_thisId);
-  sf_mex_destroy(&c9_y);
-  return c9_b_y;
-}
-
-static real_T c9_b_emlrt_marshallIn
+static real_T c9_c_emlrt_marshallIn
   (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance, const
    mxArray *c9_u, const emlrtMsgIdentifier *c9_parentId)
 {
@@ -252,23 +316,23 @@ static real_T c9_b_emlrt_marshallIn
   return c9_y;
 }
 
-static void c9_sf_marshallIn(void *chartInstanceVoid, const mxArray
+static void c9_b_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c9_mxArrayInData, const char_T *c9_varName, void *c9_outData)
 {
-  const mxArray *c9_y;
+  const mxArray *c9_nargout;
   const char_T *c9_identifier;
   emlrtMsgIdentifier c9_thisId;
-  real_T c9_b_y;
+  real_T c9_y;
   SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance;
   chartInstance = (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *)
     chartInstanceVoid;
-  c9_y = sf_mex_dup(c9_mxArrayInData);
+  c9_nargout = sf_mex_dup(c9_mxArrayInData);
   c9_identifier = c9_varName;
   c9_thisId.fIdentifier = c9_identifier;
   c9_thisId.fParent = NULL;
-  c9_b_y = c9_b_emlrt_marshallIn(chartInstance, sf_mex_dup(c9_y), &c9_thisId);
-  sf_mex_destroy(&c9_y);
-  *(real_T *)c9_outData = c9_b_y;
+  c9_y = c9_c_emlrt_marshallIn(chartInstance, sf_mex_dup(c9_nargout), &c9_thisId);
+  sf_mex_destroy(&c9_nargout);
+  *(real_T *)c9_outData = c9_y;
   sf_mex_destroy(&c9_mxArrayInData);
 }
 
@@ -276,17 +340,17 @@ const mxArray
   *sf_c9_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info(void)
 {
   const mxArray *c9_nameCaptureInfo;
-  c9_ResolvedFunctionInfo c9_info[3];
-  c9_ResolvedFunctionInfo (*c9_b_info)[3];
+  c9_ResolvedFunctionInfo c9_info[4];
+  c9_ResolvedFunctionInfo (*c9_b_info)[4];
   const mxArray *c9_m0 = NULL;
   int32_T c9_i0;
   c9_ResolvedFunctionInfo *c9_r0;
   c9_nameCaptureInfo = NULL;
   c9_nameCaptureInfo = NULL;
-  c9_b_info = (c9_ResolvedFunctionInfo (*)[3])c9_info;
+  c9_b_info = (c9_ResolvedFunctionInfo (*)[4])c9_info;
   (*c9_b_info)[0].context = "";
   (*c9_b_info)[0].name = "mrdivide";
-  (*c9_b_info)[0].dominantType = "double";
+  (*c9_b_info)[0].dominantType = "single";
   (*c9_b_info)[0].resolved =
     "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/mrdivide.p";
   (*c9_b_info)[0].fileTimeLo = 1310169856U;
@@ -296,7 +360,7 @@ const mxArray
   (*c9_b_info)[1].context =
     "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/mrdivide.p";
   (*c9_b_info)[1].name = "rdivide";
-  (*c9_b_info)[1].dominantType = "double";
+  (*c9_b_info)[1].dominantType = "single";
   (*c9_b_info)[1].resolved =
     "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/rdivide.m";
   (*c9_b_info)[1].fileTimeLo = 1286851244U;
@@ -306,15 +370,24 @@ const mxArray
   (*c9_b_info)[2].context =
     "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/rdivide.m";
   (*c9_b_info)[2].name = "eml_div";
-  (*c9_b_info)[2].dominantType = "double";
+  (*c9_b_info)[2].dominantType = "single";
   (*c9_b_info)[2].resolved =
     "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/eml/eml_div.m";
   (*c9_b_info)[2].fileTimeLo = 1305350400U;
   (*c9_b_info)[2].fileTimeHi = 0U;
   (*c9_b_info)[2].mFileTimeLo = 0U;
   (*c9_b_info)[2].mFileTimeHi = 0U;
-  sf_mex_assign(&c9_m0, sf_mex_createstruct("nameCaptureInfo", 1, 3), FALSE);
-  for (c9_i0 = 0; c9_i0 < 3; c9_i0++) {
+  (*c9_b_info)[3].context = "";
+  (*c9_b_info)[3].name = "mtimes";
+  (*c9_b_info)[3].dominantType = "single";
+  (*c9_b_info)[3].resolved =
+    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/mtimes.m";
+  (*c9_b_info)[3].fileTimeLo = 1289552092U;
+  (*c9_b_info)[3].fileTimeHi = 0U;
+  (*c9_b_info)[3].mFileTimeLo = 0U;
+  (*c9_b_info)[3].mFileTimeHi = 0U;
+  sf_mex_assign(&c9_m0, sf_mex_createstruct("nameCaptureInfo", 1, 4), FALSE);
+  for (c9_i0 = 0; c9_i0 < 4; c9_i0++) {
     c9_r0 = &c9_info[c9_i0];
     sf_mex_addfield(c9_m0, sf_mex_create("nameCaptureInfo", c9_r0->context, 15,
       0U, 0U, 0U, 2, 1, strlen(c9_r0->context)), "context", "nameCaptureInfo",
@@ -341,7 +414,7 @@ const mxArray
   return c9_nameCaptureInfo;
 }
 
-static const mxArray *c9_b_sf_marshallOut(void *chartInstanceVoid, void
+static const mxArray *c9_c_sf_marshallOut(void *chartInstanceVoid, void
   *c9_inData)
 {
   const mxArray *c9_mxArrayOutData = NULL;
@@ -358,7 +431,7 @@ static const mxArray *c9_b_sf_marshallOut(void *chartInstanceVoid, void
   return c9_mxArrayOutData;
 }
 
-static int32_T c9_c_emlrt_marshallIn
+static int32_T c9_d_emlrt_marshallIn
   (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance, const
    mxArray *c9_u, const emlrtMsgIdentifier *c9_parentId)
 {
@@ -370,7 +443,7 @@ static int32_T c9_c_emlrt_marshallIn
   return c9_y;
 }
 
-static void c9_b_sf_marshallIn(void *chartInstanceVoid, const mxArray
+static void c9_c_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c9_mxArrayInData, const char_T *c9_varName, void *c9_outData)
 {
   const mxArray *c9_b_sfEvent;
@@ -384,14 +457,14 @@ static void c9_b_sf_marshallIn(void *chartInstanceVoid, const mxArray
   c9_identifier = c9_varName;
   c9_thisId.fIdentifier = c9_identifier;
   c9_thisId.fParent = NULL;
-  c9_y = c9_c_emlrt_marshallIn(chartInstance, sf_mex_dup(c9_b_sfEvent),
+  c9_y = c9_d_emlrt_marshallIn(chartInstance, sf_mex_dup(c9_b_sfEvent),
     &c9_thisId);
   sf_mex_destroy(&c9_b_sfEvent);
   *(int32_T *)c9_outData = c9_y;
   sf_mex_destroy(&c9_mxArrayInData);
 }
 
-static uint8_T c9_d_emlrt_marshallIn
+static uint8_T c9_e_emlrt_marshallIn
   (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance, const
    mxArray *c9_b_is_active_c9_SALTStabilizationInnerOuterLoop, const char_T
    *c9_identifier)
@@ -400,13 +473,13 @@ static uint8_T c9_d_emlrt_marshallIn
   emlrtMsgIdentifier c9_thisId;
   c9_thisId.fIdentifier = c9_identifier;
   c9_thisId.fParent = NULL;
-  c9_y = c9_e_emlrt_marshallIn(chartInstance, sf_mex_dup
+  c9_y = c9_f_emlrt_marshallIn(chartInstance, sf_mex_dup
     (c9_b_is_active_c9_SALTStabilizationInnerOuterLoop), &c9_thisId);
   sf_mex_destroy(&c9_b_is_active_c9_SALTStabilizationInnerOuterLoop);
   return c9_y;
 }
 
-static uint8_T c9_e_emlrt_marshallIn
+static uint8_T c9_f_emlrt_marshallIn
   (SFc9_SALTStabilizationInnerOuterLoopInstanceStruct *chartInstance, const
    mxArray *c9_u, const emlrtMsgIdentifier *c9_parentId)
 {
@@ -426,10 +499,10 @@ static void init_dsm_address_info
 /* SFunction Glue Code */
 void sf_c9_SALTStabilizationInnerOuterLoop_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2090561635U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2067152986U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(57621831U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3189006636U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(44922973U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(4030279796U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3494153051U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3665938122U);
 }
 
 mxArray *sf_c9_SALTStabilizationInnerOuterLoop_get_autoinheritance_info(void)
@@ -441,7 +514,7 @@ mxArray *sf_c9_SALTStabilizationInnerOuterLoop_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("Fiz0HabezT46yCsSuk4QTG");
+    mxArray *mxChecksum = mxCreateString("xG35iPbBEaGhACUEmUwYK");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -462,7 +535,7 @@ mxArray *sf_c9_SALTStabilizationInnerOuterLoop_get_autoinheritance_info(void)
       const char *typeFields[] = { "base", "fixpt" };
 
       mxArray *mxType = mxCreateStructMatrix(1,1,2,typeFields);
-      mxSetField(mxType,0,"base",mxCreateDoubleScalar(10));
+      mxSetField(mxType,0,"base",mxCreateDoubleScalar(9));
       mxSetField(mxType,0,"fixpt",mxCreateDoubleMatrix(0,0,mxREAL));
       mxSetField(mxData,0,"type",mxType);
     }
@@ -493,7 +566,7 @@ mxArray *sf_c9_SALTStabilizationInnerOuterLoop_get_autoinheritance_info(void)
       const char *typeFields[] = { "base", "fixpt" };
 
       mxArray *mxType = mxCreateStructMatrix(1,1,2,typeFields);
-      mxSetField(mxType,0,"base",mxCreateDoubleScalar(10));
+      mxSetField(mxType,0,"base",mxCreateDoubleScalar(9));
       mxSetField(mxType,0,"fixpt",mxCreateDoubleMatrix(0,0,mxREAL));
       mxSetField(mxData,0,"type",mxType);
     }
@@ -584,7 +657,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,42);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,58);
         _SFD_TRANS_COV_WTS(0,0,0,1,0);
         if (chartAlreadyPresent==0) {
           _SFD_TRANS_COV_MAPS(0,
@@ -594,16 +667,16 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
                               0,NULL,NULL);
         }
 
-        _SFD_SET_DATA_COMPILED_PROPS(0,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
+        _SFD_SET_DATA_COMPILED_PROPS(0,SF_SINGLE,0,NULL,0,0,0,0.0,1.0,0,0,
           (MexFcnForType)c9_sf_marshallOut,(MexInFcnForType)NULL);
-        _SFD_SET_DATA_COMPILED_PROPS(1,SF_DOUBLE,0,NULL,0,0,0,0.0,1.0,0,0,
+        _SFD_SET_DATA_COMPILED_PROPS(1,SF_SINGLE,0,NULL,0,0,0,0.0,1.0,0,0,
           (MexFcnForType)c9_sf_marshallOut,(MexInFcnForType)c9_sf_marshallIn);
 
         {
-          real_T *c9_u;
-          real_T *c9_y;
-          c9_y = (real_T *)ssGetOutputPortSignal(chartInstance->S, 1);
-          c9_u = (real_T *)ssGetInputPortSignal(chartInstance->S, 0);
+          real32_T *c9_u;
+          real32_T *c9_y;
+          c9_y = (real32_T *)ssGetOutputPortSignal(chartInstance->S, 1);
+          c9_u = (real32_T *)ssGetInputPortSignal(chartInstance->S, 0);
           _SFD_SET_DATA_VALUE_PTR(0U, c9_u);
           _SFD_SET_DATA_VALUE_PTR(1U, c9_y);
         }
@@ -781,10 +854,10 @@ static void mdlSetWorkWidths_c9_SALTStabilizationInnerOuterLoop(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(1772596242U));
-  ssSetChecksum1(S,(2909740713U));
-  ssSetChecksum2(S,(1106637876U));
-  ssSetChecksum3(S,(1067404788U));
+  ssSetChecksum0(S,(736698651U));
+  ssSetChecksum1(S,(388711017U));
+  ssSetChecksum2(S,(978960088U));
+  ssSetChecksum3(S,(818443017U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
 }

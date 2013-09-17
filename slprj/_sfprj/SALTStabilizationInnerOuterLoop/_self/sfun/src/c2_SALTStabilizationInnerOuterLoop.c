@@ -172,18 +172,14 @@ static void sf_c2_SALTStabilizationInnerOuterLoop
   real32_T c2_A;
   real32_T c2_x;
   real32_T c2_b_x;
-  real32_T c2_b_y;
-  real32_T c2_a;
-  real32_T c2_c_y;
-  real32_T c2_b_a;
   real32_T *c2_b_u;
-  real32_T *c2_d_y;
-  c2_d_y = (real32_T *)ssGetOutputPortSignal(chartInstance->S, 1);
+  real32_T *c2_b_y;
+  c2_b_y = (real32_T *)ssGetOutputPortSignal(chartInstance->S, 1);
   c2_b_u = (real32_T *)ssGetInputPortSignal(chartInstance->S, 0);
   _sfTime_ = (real_T)ssGetT(chartInstance->S);
   _SFD_CC_CALL(CHART_ENTER_SFUNCTION_TAG, 1U, chartInstance->c2_sfEvent);
   _SFD_DATA_RANGE_CHECK((real_T)*c2_b_u, 0U);
-  _SFD_DATA_RANGE_CHECK((real_T)*c2_d_y, 1U);
+  _SFD_DATA_RANGE_CHECK((real_T)*c2_b_y, 1U);
   chartInstance->c2_sfEvent = CALL_EVENT;
   _SFD_CC_CALL(CHART_ENTER_DURING_FUNCTION_TAG, 1U, chartInstance->c2_sfEvent);
   c2_hoistedGlobal = *c2_b_u;
@@ -202,14 +198,10 @@ static void sf_c2_SALTStabilizationInnerOuterLoop
   c2_A = c2_u;
   c2_x = c2_A;
   c2_b_x = c2_x;
-  c2_b_y = c2_b_x / 131.0F;
-  c2_a = c2_b_y;
-  c2_c_y = c2_a * 0.0174532924F;
-  c2_b_a = c2_c_y;
-  c2_y = c2_b_a * 5.0F;
+  c2_y = c2_b_x / 32.8F;
   _SFD_EML_CALL(0U, chartInstance->c2_sfEvent, -4);
   sf_debug_symbol_scope_pop();
-  *c2_d_y = c2_y;
+  *c2_b_y = c2_y;
   _SFD_CC_CALL(EXIT_OUT_OF_FUNCTION_TAG, 1U, chartInstance->c2_sfEvent);
   sf_debug_check_for_state_inconsistency
     (_SALTStabilizationInnerOuterLoopMachineNumber_, chartInstance->chartNumber,
@@ -340,14 +332,14 @@ const mxArray
   *sf_c2_SALTStabilizationInnerOuterLoop_get_eml_resolved_functions_info(void)
 {
   const mxArray *c2_nameCaptureInfo;
-  c2_ResolvedFunctionInfo c2_info[4];
-  c2_ResolvedFunctionInfo (*c2_b_info)[4];
+  c2_ResolvedFunctionInfo c2_info[3];
+  c2_ResolvedFunctionInfo (*c2_b_info)[3];
   const mxArray *c2_m0 = NULL;
   int32_T c2_i0;
   c2_ResolvedFunctionInfo *c2_r0;
   c2_nameCaptureInfo = NULL;
   c2_nameCaptureInfo = NULL;
-  c2_b_info = (c2_ResolvedFunctionInfo (*)[4])c2_info;
+  c2_b_info = (c2_ResolvedFunctionInfo (*)[3])c2_info;
   (*c2_b_info)[0].context = "";
   (*c2_b_info)[0].name = "mrdivide";
   (*c2_b_info)[0].dominantType = "single";
@@ -377,17 +369,8 @@ const mxArray
   (*c2_b_info)[2].fileTimeHi = 0U;
   (*c2_b_info)[2].mFileTimeLo = 0U;
   (*c2_b_info)[2].mFileTimeHi = 0U;
-  (*c2_b_info)[3].context = "";
-  (*c2_b_info)[3].name = "mtimes";
-  (*c2_b_info)[3].dominantType = "single";
-  (*c2_b_info)[3].resolved =
-    "[ILXE]$matlabroot$/toolbox/eml/lib/matlab/ops/mtimes.m";
-  (*c2_b_info)[3].fileTimeLo = 1289552092U;
-  (*c2_b_info)[3].fileTimeHi = 0U;
-  (*c2_b_info)[3].mFileTimeLo = 0U;
-  (*c2_b_info)[3].mFileTimeHi = 0U;
-  sf_mex_assign(&c2_m0, sf_mex_createstruct("nameCaptureInfo", 1, 4), FALSE);
-  for (c2_i0 = 0; c2_i0 < 4; c2_i0++) {
+  sf_mex_assign(&c2_m0, sf_mex_createstruct("nameCaptureInfo", 1, 3), FALSE);
+  for (c2_i0 = 0; c2_i0 < 3; c2_i0++) {
     c2_r0 = &c2_info[c2_i0];
     sf_mex_addfield(c2_m0, sf_mex_create("nameCaptureInfo", c2_r0->context, 15,
       0U, 0U, 0U, 2, 1, strlen(c2_r0->context)), "context", "nameCaptureInfo",
@@ -499,10 +482,10 @@ static void init_dsm_address_info
 /* SFunction Glue Code */
 void sf_c2_SALTStabilizationInnerOuterLoop_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(44922973U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(4030279796U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3494153051U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3665938122U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(1865546745U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3891164594U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(3997765754U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(1669053539U);
 }
 
 mxArray *sf_c2_SALTStabilizationInnerOuterLoop_get_autoinheritance_info(void)
@@ -514,7 +497,7 @@ mxArray *sf_c2_SALTStabilizationInnerOuterLoop_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("xG35iPbBEaGhACUEmUwYK");
+    mxArray *mxChecksum = mxCreateString("Fiz0HabezT46yCsSuk4QTG");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -657,7 +640,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,0,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,58);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,42);
         _SFD_TRANS_COV_WTS(0,0,0,1,0);
         if (chartAlreadyPresent==0) {
           _SFD_TRANS_COV_MAPS(0,
@@ -854,10 +837,10 @@ static void mdlSetWorkWidths_c2_SALTStabilizationInnerOuterLoop(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(736698651U));
-  ssSetChecksum1(S,(388711017U));
-  ssSetChecksum2(S,(978960088U));
-  ssSetChecksum3(S,(818443017U));
+  ssSetChecksum0(S,(1337613321U));
+  ssSetChecksum1(S,(2885284561U));
+  ssSetChecksum2(S,(1540630970U));
+  ssSetChecksum3(S,(929279587U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
 }
